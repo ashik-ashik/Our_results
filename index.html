@@ -1,0 +1,3591 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Find Your Result here</title>
+
+<style>
+body{background-color:#ddd;
+	
+
+ }
+
+
+#boDY{
+	background-color: #fff;
+	height: 100%;
+	width: 100%;
+	max-width:900px;
+ margin: 0 auto;
+ padding:2px;
+}
+
+
+#hearder{background-color: darkblue;
+ color:#fff;
+}
+
+
+#clock{float:right; font-family: "arial black"; padding: 5 px;}
+
+
+p, p ul li, p ol li{padding:12px;
+	 text-align:justify;
+	 font-family: 'roboto', sans-serif;
+	  }
+
+#date{float:left;}
+
+#name{float:right;}
+
+#footer{background-color: #fff;
+ color:#0000ff;
+ font-family: "arial black";
+ height: 20px;
+ }
+
+#wc{font-family: "antsypants"; padding: 5px;}
+
+#loginDiv, #signupDiv{background-color:#fff;
+ box-shadow: 5px gray;
+ border-radius: 5px;
+ padding: 5px
+ }
+
+.divTitle{min-height:10px; background-color:red;}
+
+td{padding: 6px;}
+#loginBtn{float:right}
+#signupBtn{float:right}
+#logoutBtn{float:right; display:none;}
+
+#homePage{ max-width:800px;
+ margin: auto;
+ background-color:#fff;
+ }
+
+#homeHead{background-color:red;
+ margin-top:0;
+ padding:7px;
+ font-family:"Algerian";
+ border-radius:12px 12px 0 0;
+ text-align: center;
+ }
+
+ .homebody{
+ background-color: #eee;
+ border-radius: 0 0 12px 12px;
+ }
+
+#logBtns{ padding:3px;}
+
+.clear{clear:both;}
+
+button{margin:3px; padding:2px;}
+
+@media(max-width:568px){
+
+
+#loginDiv, #signupDiv{font-family: "arial black"}
+}
+
+#link{background-color:#fff; color:red;}
+#link a {margin-left:10px}
+
+
+.inputField{
+width: 100%;
+padding: 10px 0;
+margin: 5px 0;
+border-top:0;
+border-left:0;
+border-right:0;
+border-bottom: 2px solid #ddd;
+outline:none;
+background: transparent;
+}
+form table tr th{ text-align: left;}
+
+.button{
+background-color:  red;
+color: #fff;
+outline:none;
+border-radius: 30px;
+width: 100px;
+height: 40px;
+font-size: 15px;
+font-family: "arial";
+font-weight: bold;
+}
+
+.otherBtn{
+background-color:  #3300ff;
+opacity: .9;
+color: #fff;
+outline:none;
+border-radius: 30px;
+width: 90px;
+height: 38px;
+font-size: 13px;
+font-family: "arial";
+font-weight: bold;
+}
+.searchBtn{
+background-color:  #330033;
+color: #fff;
+outline:none;
+border-radius: 20px;
+width: 100px;
+height: 33px;
+font-size: 15px;
+font-family: "arial";
+font-weight: bold;
+}
+
+#rollResult{
+background: #f8464e;
+border-radius: 10px;
+height:33px;
+border-top:none;
+border-left:none;
+border-right:none;
+border-bottom: 1px solid #000;
+margin: 20px;
+font-size: 20px;
+
+}
+
+.lgform{
+background-color: #b4a9f8;
+border-radius:12px;
+}
+
+.select{
+height: 25px;
+margin: 10px;
+padding: 5px;
+border-radius: 7px;
+}
+
+#takeComment{
+min-height: 220px;
+min-width: 200px;
+border-radius: 5px;
+
+}
+
+#search_form{
+padding-left: 100px;
+}
+
+#search_form table{
+background-color:#ccf1c1;
+padding: 10px ;
+
+}
+
+
+
+#commentAlert{
+background-color:#bec0fd;
+padding: 10px;
+}
+
+#outputResult{
+padding : 20px;
+}
+
+#outputResult table td{
+
+text-align: right;
+}
+
+#main_page{
+ max-width: 800px
+}
+
+
+
+#syllabus_page form {
+padding-left: 20%;
+}
+
+#syllabus_page form table tr th {
+padding-left: 7px;
+text-align: center;
+}
+
+
+
+.linkname{
+padding-bottom: 10px;
+font-size: 16px;
+font-family: "arial black";
+}
+
+.contactArea table tr td a{
+text-decoration:none;
+}
+.contactArea table tr td:hover{
+background-color: darkblue;
+color: #fff;
+}
+.contactArea table tr td a:hover{
+color: #fff;
+}
+
+
+
+#windoeLoader{
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+.container{
+    background: #009;
+    width: 100%;
+    display: flex;
+    height: 100%;
+    position: fixed;
+
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.wrapper{
+position: absolute;
+background: #f0f0;
+}
+
+.loader{
+    height: 45px;
+    width: 40px;
+   /* background: red;*/
+    position: absolute;
+    animation: rotate 3.5s linear infinite;
+}
+
+.loader:nth-child(1){
+    animation-delay: .15s;
+}
+.loader:nth-child(2){
+    animation-delay: .3s;
+}
+.loader:nth-child(3){
+    animation-delay: .45s;
+}
+.loader:nth-child(4){
+    animation-delay: .60s;
+}
+.loader:nth-child(5){
+    animation-delay: .75s;
+}
+
+
+@keyframes rotate{
+    30%{
+        transform: rotate(210deg);
+    }
+    40%{
+        transform: rotate(440deg);
+    }
+    75%{
+        transform: rotate(700deg);
+        opacity: 1;
+    }
+    76%{
+        opacity: 0;
+    }
+    100%{
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+}
+
+.dot{
+
+    height: 6px;
+    width: 5px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    
+}
+
+.text{
+   
+    color: #fff;
+    font-family: sans-serif;
+}
+
+
+
+
+.nav_container{
+	background: #005;
+	list-style: none;
+	text-decoration: none;
+	height: 60px;
+	width: 100%;
+}
+
+.nav_container .header{
+	font-family: 'roboto', sans-serif;
+	color: #fff;
+	font-weight: bold;
+	user-select: none;
+	padding: 20px;
+	line-height: 60px;
+}
+
+.nav_container ul{
+	float: right;
+	display: inline-flex;
+}
+
+.nav_container ul li{
+	padding: 10px;
+	list-style: none;
+}
+
+.nav_container ul li:hover{
+	background: #fff000;
+}
+.nav_container ul li a{
+	text-decoration: none;
+	font-family: 'roboto', sans-serif;
+	color: #fff;
+	font-weight: bold;
+	
+}
+
+.sub_menu_1{
+    display: none;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+.hover_me:hover .sub_menu_1{
+	display: block;
+    position: absolute;
+    background: #007;
+
+}
+
+.sub_menu_1 ul{
+    display: block;
+	}
+
+.sub_menu_1 ul li{
+	display: block;
+    width: 100px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+}
+
+.sub_menu_1 ul li:hover a{
+	color: #992b00;
+	margin-right: 5px;
+}
+
+.sub_menu_2{
+	display: none;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+.hover_me_2:hover .sub_menu_2{
+	display: block;
+    position: absolute;
+    background: #000fff;
+	left: 140px;
+}
+
+.cv_clear{
+	clear: both;
+}
+
+h4, h5, h6{
+	text-align:center;
+	margin: 0;
+	padding: 0;
+}
+h3{
+	padding-left: 10px;
+}
+.cv_head{
+	background: #004;
+}
+.image{
+	float: left;
+	width: 20%;
+}
+
+img{
+	border-radius: 50%;
+	padding: 10px;
+}
+
+.cvname{
+	float: left;
+	width: 40%;
+}
+
+.cv_name, .cv_title{
+	display: block;
+	color: #fff;
+	font-family:'roboto', sans-serif;
+	padding: 10px;
+}
+
+.head_link{
+	float: left;
+	color: #fff;
+	width: 40%;	
+}
+
+.head_link li{
+	padding: 4px;
+	list-style: none;
+}
+.head_link li a{
+	color: #fff;
+	text-decoration: none;
+	
+}
+
+.cv_personal{
+	background: #e703e7;
+}
+.personal_left{
+	float: left;
+	width: 27%;
+}
+.personal_right{
+	float: left;
+	width: 73%;
+}
+
+.cv_education{
+	background: #f8464e;
+}
+.education_left{
+	float: left;
+	width: 27%;
+}
+.education_right{
+	float: left;
+	width: 73%;
+}
+.education_right .edu_bss{
+	float: left;
+	width: 33%;
+}
+.education_right .edu_hsc{
+	float: left;
+	width: 34%;
+}
+.education_right .edu_ssc{
+	float: left;
+	width: 33%;
+}
+
+.edu_head{
+	text-align: left;
+}
+
+.cv_skill{
+	background: #00dd99;
+}
+.skill_left{
+	float: left;
+	width: 27%;
+}
+
+.skill_right{
+	float: left;
+	width: 73%;
+}
+
+
+.cv_language{
+	background: #ff7b00;
+}
+.lan_left{
+	float: left;
+	width: 27%;
+}
+.lan_right{
+	float: left;
+	width: 73%;
+}
+
+.interset{
+	background: #3300ff;
+}
+
+.interest_left{
+	float: left;
+	width: 27%;
+}
+
+.interest_right{
+	float: left;
+	width: 73%;
+}
+
+
+
+
+
+
+.chapter_nav{
+	list-style: none;
+}
+
+.chapter_conteiner{
+	background: #009;
+	position: relative;
+	list-style: none;
+	height: 100%;
+	width: 140px;
+	display: none;
+}
+
+.chapter_conteiner ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+.chapter_conteiner ul li{
+	display: block;
+	line-height: 40px;
+	padding: 7px;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #002;
+}
+.chapter_conteiner ul li a{
+	text-decoration: none;
+	color: #fff;
+	font-family: 'roboto',sans-serif;
+	font-weight: bold;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+}
+.chapter_conteiner ul li:hover {
+	background: #000fff;
+}
+#chpater_check{
+	display: none;
+}
+.svg{
+	height: 25px;
+	width: 25px;
+	margin: 10px;
+	background: #ff0000;
+	padding: 10px;
+	color: #fff;
+	cursor: pointer;
+}
+
+#cloge{
+transition: 0.6s;
+display: none;
+}
+#chpater_check:checked ~ label #cloge{
+	display: block;
+}
+#chpater_check:checked ~ label #manu{
+	display: none;
+}
+#chpater_check:checked ~ .chapter_conteiner{
+	display: block;
+}
+
+#chpater_check4{
+	display: none;
+}
+
+#cloge4{
+transition: 0.6s;
+display: none;
+}
+#chpater_check4:checked ~ label #cloge4{
+	display: block;
+}
+#chpater_check4:checked ~ label #manu4{
+	display: none;
+}
+#chpater_check4:checked ~ .chapter_conteiner{
+	display: block;
+}
+
+
+
+#chpater_check2{
+	display: none;
+}
+
+#cloge2{
+transition: 0.6s;
+display: none;
+}
+#chpater_check2:checked ~ label #cloge2{
+	display: block;
+}
+#chpater_check2:checked ~ label #manu2{
+	display: none;
+}
+#chpater_check2:checked ~ .chapter_conteiner{
+	display: block;
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+
+	
+
+<!--Windoe loader page start here-->
+<div id="windoeLoader" style="display: none;" ><!-- style="display: none;"-->
+    <div class="container">
+        <div class="wrapper">
+        <div class="loader">
+            <div class="dot"></div>
+        </div>
+
+        <div class="loader">
+            <div class="dot"></div>
+        </div>
+
+        <div class="loader">
+            <div class="dot"></div>
+        </div>
+
+        <div class="loader">
+            <div class="dot"></div>
+        </div>
+        
+
+        <div class="loader">
+            <div class="dot"></div>
+        </div>
+        
+
+        <div class="loader">
+            <div class="dot"></div>
+        </div>
+        </div>
+        <div class="text">Please Wait...</div>
+    </div>
+
+</div>
+<!--Window loader page end here-->
+
+
+<div id="boDY">
+
+<!-- header start here-->
+
+<div id="hearder" >
+<span id="wc"> WEL COME</span>
+<section id="clock">
+<span id="hour"></span> :
+<span id="minute"></span> :
+<span id="second"></span>
+<div class="clear"></div>
+</section>
+
+</div><!-- header end here-->
+
+
+
+
+<br/>
+
+
+
+
+
+
+
+<section id="mainBody">
+
+
+
+<!-- log in page or div start here-->
+
+<div id="loginDiv" style="display:none">
+
+	<div class="divTitle"></div>
+
+	<form name="login_form" class="lgform" >
+	<table  align="center">
+	<tr>
+	<td colspan="2">
+
+		<legend align="center"><h3 > Log In Form :</h3></legend> </td></tr>
+
+
+		<tr>
+		<th>Full Name : </th>
+		<td>
+		<input type="text" id="fullname" class="inputField" size="35px" placeholder="Full name" required >
+		</td></tr>
+
+		<tr>
+		<th>Mobail :</th>
+		<td>
+		<input type="text" size="35px" id="mobail" class="inputField" placeholder="Your mobail num..." required pattern="[0-9]+">
+		</td></tr>
+
+		<tr>
+		<th>Roll No :</th>
+		<td>
+		<input type="text" id="logRoll" size="35px" class="inputField" placeholder="Your roll no.." required pattern="[0-9]+">
+		</td></tr>
+
+		<tr>
+		<th>
+		<button type="button" class="otherBtn"  onclick="getLogIN()" >Log In</button>
+			<button type="button" class="otherBtn"   onclick="backLogin()" >Back </button>
+	</th>
+	</tr>
+	</table>
+	</form>
+
+</div><!-- log in div end here-->
+
+
+
+
+
+
+
+
+
+<!--sign up page or div start here-->
+
+<div id="signupDiv" style="display:none">
+
+
+<div class="divTitle"></div>
+
+	<form name="register_form" class="lgform">
+	<table align="center">
+	<tr>
+	<td colspan="2">
+		<legend align="center"><h3 > Registration Form :</h3></legend>
+	</td></tr>
+	<tr>
+		<th>First Name : </th>
+		<td>
+		<input type="text"  name="Firstname" class="inputField" size="35px" placeholder="First name" required >
+		</td></tr>
+
+		<tr>
+		<th>Last Name :</th>
+		<td>
+		<input type="text" size="35px" name="Lastname" class="inputField" placeholder="Last name" required>
+		</td></tr>
+
+		<tr>
+		<th>Mobail :</th>
+		<td>
+		<input type="text" size="35px" name="Mobail" class="inputField" placeholder="Your mobail num..." maxlength="14" required pattern="[+0-9]+">
+		</td></tr>
+
+		<tr>
+		<th>Roll No :</th>
+		<td>
+		<input type="text" name="signRoll" size="35px" class="inputField" placeholder="Your roll no.." maxlength="6" required pattern="[0-9]+">
+		</td></tr>
+
+		<tr>
+		<th>Department:</th>
+		<td>
+		<select name="departLog" class="select">
+		<option>None</option>
+		<option class="depopt" value="Social Work">Social Work</option>
+		<option class="depopt" value="Economics">Economics</option>
+		<option class="depopt" value="GE">GE</option>
+		<option value="EEE">EEE</option>
+		<option value="CSE">CSE</option>
+		<option value="English">English</option>
+		<option value="Bangla">Bangla</option>
+		<option value="BBA">BBA</option>
+		<option value="HBS">HBS</option>
+		<option value="Maths">Maths</option>
+		<option value="Physics">Physics</option>
+		<option value="Chemistry">Chemistry</option>
+		<option value="EECE">EECE</option>
+		<option value="Civil">Civil</option>
+		<option value="Acrh">Arch</option>
+		<option value="Pher">Pher</option>
+		<option value="URP">URP</option>
+		</select>
+		</td></tr>
+
+		<tr>
+		<th> Gender : </th>
+		<td>
+		Male <input type="radio" name="sex" value="Male" >
+		Female  <input type="radio" name="sex" value="Female">
+		</td></tr>
+
+		<tr>
+		<th colspan="2">
+		<button type="button"   class="otherBtn" onclick="getSignUp()">Sign Up</button>
+		<input type="reset" class="otherBtn" name="reset"  >
+		<button type="button" class="otherBtn"   onclick="backSignup()" >Back </button>
+		</th></tr>
+
+	</table>
+	</form>
+</div><!-- Sign up div end here-->
+
+
+
+
+
+
+
+
+
+<div id="logoutDiv" style="display:none"><!--log out div start here -->
+
+<form >
+
+	<table border="1" align="center">
+	<tr>
+	<td >
+	<div class="divTitle"></div>
+		<legend align="center"><h3 > Log Out :</h3></legend> <br/>
+		<button type="button" class="otherBtn"  onclick="getLogout()" >Log Out </button>
+		<button type="button" class="otherBtn"  onclick="backLogout()" >Back </button>
+	</td>
+	</tr>
+	</table>
+	</form>
+</div><!-- Log out div end here-->
+
+
+
+
+
+
+
+
+
+
+
+<div id="homePage"><!--home page div start here -->
+
+
+<div id="homeHead">
+<span>Pabna University of Science and Technology </span><br/>
+<span> At Department of Social Work<span>
+
+</div>
+<div class="homebody">
+<p>We are the student of Pabna University of Science and Technology.
+Speacipicly speaking we are the student of Department of Social Work.
+We naver say that, we are in the department, we always say we are in a Family.
+
+</p>
+
+
+<p>
+This Site is only for the Student of Department of Social Work at Pabna University of Science and Technology.
+You can <span style="color:darkblue; font-weight:bold">Sign Up</span> or <span style="color:darkblue; font-weight:bold">Log In</span> in this page
+and find your result and your detailes.
+</p>
+</div>
+</div><!-- Home page div end here-->
+
+
+
+
+
+
+
+
+
+
+
+<!--main page start here -->
+<div class="navBar" style="display: none"><!--style="display: none"-->
+
+	<div class="nav_container">
+		<span class="header">Menu</span>
+		<ul>
+			<li><a href="#" onclick="home()">Home</a></li>
+			<li class="hover_me"><a href="#">Academic</a>
+				<div class="sub_menu_1" >
+					<ul >
+						<li ><a href="#" onclick="bsw1251()">BSW-1251</a></li>
+						<li ><a href="#" onclick="bsw1252()">BSW-1252</a></li>
+						<li ><a href="#" onclick="bsw1253()">BSW-1253</a></li>
+						<li ><a href="#" onclick="bsw1254()">BSW-1254</a></li>
+						<li ><a href="#" onclick="bsw1255()">BSW-1255</a></li>
+					</ul>
+				</div>
+			</li>
+			<li><a href="#" onclick="academic()">Syllabus</a></li>
+			<li><a href="#" onclick="contact()">Contact</a></li>
+			<li><a href="#" onclick="about()">About me</a></li>
+		</ul>
+	</div>
+
+</div><!-- nav bar -->
+
+
+
+<!--Log in or Sign Up or LogOut or Comment success massage here -->
+
+<div id="loginSMS" style=" display:none; color: green; font-family: 'arial black';">
+</div>
+
+
+
+
+
+
+
+<div id="main_page" style="display: none"><!--style="display: none"-->
+
+
+
+
+
+
+<form name="search_form" id="search_form">
+
+<table border="1"  >
+
+<tr><td colspan="3">
+<p>You will find your little detailes and your result by searching your valied roll no.</p>
+</td></tr>
+
+<tr>
+<th>Roll No :</th>
+<td >
+<input type="text" id="rollResult" placeholder="Enter your roll..." name="inputResult"/>
+</td>
+
+
+<td rowspan="3">
+<button type="button" class="searchBtn" name="submit" onClick="result()">Search</button>
+
+</td>
+</tr>
+<tr>
+<th>
+Semester : </th>
+
+<td> <input type="radio" name="semester" value="1st"/>1<sup>st</sup>
+			<input type="radio" name="semester" value="2nd"/>2<sup>nd</sup>
+</td></tr>
+
+<tr>
+<th>
+Year :  </th>
+<td><input type="checkbox" name="year" value="1st"/>1<sup>st</sup>
+			<input type="checkbox" name="year" value="2nd"/>2<sup>nd</sup>
+			<input type="checkbox" name="year" value="3rd"/>3<sup>rd</sup>
+			<input type="checkbox" name="year" value="4th"/>4<sup>th</sup>
+</td></tr>
+</table>
+</form>
+<br/>
+
+
+
+<div id="commentAlert" style="display:none;">
+	আমার সাইট টি ঘুরে দেখে আপনার কেমন লাগল তা আপনি Comment মাধ্যমে জানাবে আশা করি !<br/><br/>
+
+<form align="center">
+<table>
+<tr>
+<td>
+	<button type="button" class="otherBtn" onclick="wantComment()">Write Comment</button>
+	</td>
+	<td>
+	<button type="button" class="otherBtn" onclick="backComment()">Skip</button>
+	</td>
+	</tr></table>
+	</form>
+</div>
+
+
+<div id="srcRe">
+
+<form id="outputResult"  style="display:none">
+<table border="1">
+<tr>
+<td colspan="2"> <legend style="text-align:center"><h5>Your Result for : <span id="outputGetRoll"></span>
+</h5></legend></td>
+</tr>
+<tr>
+<th>Name:</th><td ><span id="resultName"></span></td>
+</tr>
+<tr>
+<th>Roll:</th><td><span id="resultRoll"></span></td>
+</tr>
+<tr>
+<th>Reg:</th><td><span id="resultReg"></span></td>
+</tr>
+<tr>
+<th>GPA:</th><td><span id="resultGpa"></span></td>
+</tr>
+<tr>
+<th>City:</th><td><span id="resultCity"></span></td>
+</tr>
+<tr>
+<th>Gender:</th><td><span id="resultGender"></span></td>
+</tr>
+<tr>
+<th>Age:</th><td><span id="resultAge"></span></td>
+</tr>
+<tr>
+<th>Religion:</th><td><span id="resultReli"></span></td>
+</tr>
+<tr>
+<th>Marital Status:</th><td><span id="resultMari"></span></td>
+</tr>
+</table>
+</form>
+
+</div>
+<br/><br/>
+
+
+
+</div><!-- Main page div end here-->
+
+
+</section>
+
+<!--mainBody Section end here-->
+
+
+
+
+
+
+
+
+
+
+<!--comment page start here-->
+
+<div id="comment">
+
+
+
+<div id="writeComment" style="display:none;">
+	<p>আপনার মন্তব্য এখানে লিখুন <span style="color:darkred;">*</span></p><br/>
+	<textarea type="text" id="takeComment" placeholder="Write comment"></textarea><br/><br/>
+	<button type="button" class="otherBtn" onclick="takeComment()">Send</button>
+
+</div>
+
+<div id="thankComment" style="display:none;">
+ <p> আপনার গুরত্বপূর্ণ মন্তব্য‘র জন্য আপনাকে অসংখ্য ধন্যবাদ!! আপনার একটি মন্তব্যই আমাকে অনেক টা পথ এগিয়ে দিতে পারে আমার লক্ষের দিকে। </p>
+	<button type="button" class="otherBtn" onclick="thankComment()">Ok</button>
+</div>
+
+<div id="screenComment" style="display:none;">
+Sorry !!<br/>
+<p> এই মূহুর্তে সাইট টি তে ইন্টারনেট সংযুক্ত না থাকায় আপনার মন্তব্য টি Admin-এর কাছে পাঠানো সম্ভব হচ্ছে না ! আপনার মস্তব্য টি Admin -এর কাছে পাঠাতে চাইলে  স্ক্রিনশট দিয়ে
+ পাঠাতে পারেন। আপনার একাটি ছো্ট্ট মন্তব্য আমার অনেক বড় অনুপেরণার কারণ হতে পারে। নিচে লিঙ্ক দিয়ে দিচ্ছি পাঠিয়ে দিন... </p>
+
+<h6> আপনার কমেন্ট : <span style="color:red;">**</span></h6>
+<div id="outComment" style="background-color:#fff; color:darkblue; font-style: italic;"></div><br/>
+
+<button type="button" class="otherBtn" onclick="screenComment()">Ok</button>
+
+<div id="link">
+<a href="https://www.facebook.com/ashik.khan989" target="blank">Facebook</a>
+<a href="https://www.twitter.com/MdAshik68106288" target="blank">Twitter</a>
+<a href="mailto:kmdashik635@gmail.com" target="blank">Mail</a>
+<a href="https://www.instagram.com/ma_ashik_ali_khan/" target="blank">Instagram</a> &nbsp;
+<a href="https://www.twitter.com/MdAshik68106288" target="blank">Twitter</a>
+</div>
+
+</div>
+
+</div><!-- Take comment div end here-->
+
+
+
+
+
+
+<!--academic page start here-->
+
+<div id="academic_page">
+
+<p>
+
+</p>
+
+
+</div>
+
+<!--academic page end here-->
+
+
+
+
+
+
+
+
+
+<!-- syllabus page start here-->
+
+
+
+
+<div id="syllabus_page" style="display: none">
+
+
+<div class="homebody">
+<h2 style="text-align:center">Wel Come To tha Academic Page</h2>
+<p>
+Department of Social Work at Pabna University of Science and Technology was opened in 29 July, 2015.
+Awal Kobir Joy, who is the founder of this Department at PUST. It is a very unique Department on the whole
+University. At present there are five teachers in this department. Md Jahidul Islam, who is the present Chairman in
+this Department.
+</p>
+
+<p>
+
+</p>
+
+</div>
+
+
+
+
+<form >
+<legend> Department of Social Work</legend>
+<table border="1">
+<tr><td colspan="4">
+	<strong>Departmnet of Social Work</strong><br/>
+	<strong>Syllabus for BSS(Honours)</strong><br/>
+	<strong>Session: 2018-19</strong>
+</td></tr>
+
+<tr><td colspan="4">
+	<strong>Credit Distribution</strong><br/>
+	<strong>At a Glance</strong>
+</td></tr>
+
+<tr>
+<th>Year</th>
+<th>Semester</th>
+<th colspan="2">Credit</th>
+
+</tr>
+
+<tr>
+<th rowspan="2">First</th>
+<td>1</td>
+<td>16</td>
+<td rowspan="2">34</td>
+</tr>
+<tr>
+<td>2</td>
+<td>18</td>
+
+</tr>
+<tr>
+<th rowspan="2">Second</th>
+<td>1</td>
+<td>18</td>
+<td rowspan="2">34</td>
+</tr>
+<tr>
+<td>2</td>
+<td>16</td>
+</tr>
+
+<tr>
+<th rowspan="2">Third</th>
+<td>1</td>
+<td>16</td>
+<td rowspan="2">36</td>
+</tr>
+<tr>
+<td>2</td>
+<td>19</td>
+</tr>
+
+<tr>
+<th rowspan="2">Fourth</th>
+<td>1</td>
+<td>20</td>
+<td rowspan="2">38</td>
+</tr>
+<tr>
+<td>2</td>
+<td>18</td>
+</tr>
+
+<tr>
+<th colspan="3">Total :</th>
+<td>141</td>
+
+</tr>
+
+</table>
+</form>
+
+
+<br/>
+<br/>
+<form>
+<h2> Summary of Course Patterns</h2>
+</form>
+<form>
+<table border="1">
+<tr>
+<th colspan="3">
+1<sup>st</sup> Year 1<sup>st</sup> Semester
+</th>
+</tr>
+
+<tr>
+<th>Course No.</th>
+<th>Course Title</th>
+<th>Credit</th>
+</tr>
+
+<tr>
+<td>BSW- 1101 </td>
+<td>Introduction to Social Work</td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-1102</td>
+<td>History of Social Welfare and Social Work </td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-1103 </td>
+<td>Culture and Social Work Practice</td>
+<td>3.0 </td>
+</tr>
+
+<tr>
+<td>BSW-1104 </td>
+<td>Economics for Social Workers </td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-1105 </td>
+<td>English Language </td>
+<td>3.0 </td>
+</tr>
+
+<tr>
+<td>BSW-1106</td>
+<td>Viva-Voce</td>
+<td>1.0</td>
+</tr>
+
+<tr>
+<th colspan="2"> Total</th>
+<td>16.0</td>
+</tr>
+
+</table>
+</form>
+
+<br/>
+<br/>
+
+<!-- first year socond semester-->
+
+<form>
+<table border="1">
+<tr>
+<th colspan="3">
+1<sup>nd</sup> Year 2<sup>nd</sup> Semester
+</th>
+</tr>
+
+<tr>
+<th>Course No.</th>
+<th>Course Title</th>
+<th>Credit</th>
+</tr>
+
+<tr>
+<td>BSW- 1251 </td>
+<td>Sociological Knowledge in Social Work Practice </td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-1252</td>
+<td>Bangladesh Studies </td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-1253 </td>
+<td>Human Physiology: Growth and Development</td>
+<td>3.0 </td>
+</tr>
+
+<tr>
+<td>BSW-1254 </td>
+<td>Psychological Aspects of Human Behavior </td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-1255 </td>
+<td>Social Thought and Political Institution </td>
+<td>3.0 </td>
+</tr>
+
+<tr>
+<td>BSW-1256</td>
+<td>Field Visit</td>
+<td>2.0</td>
+</tr>
+
+
+<tr>
+<td>BSW-1257</td>
+<td>Viva-Voce</td>
+<td>1.0</td>
+</tr>
+
+
+<tr>
+<th colspan="2"> Total</th>
+<td>18.0</td>
+</tr>
+
+</table>
+</form>
+<br/><br/>
+<!-- 2nd year 1st semester-->
+
+<form>
+<table border="1">
+<tr>
+<th colspan="3">
+2<sup>nd</sup> Year 1<sup>st</sup> Semester
+</th>
+</tr>
+
+<tr>
+<th>Course No.</th>
+<th>Course Title</th>
+<th>Credit</th>
+</tr>
+
+<tr>
+<td>BSW- 2101 </td>
+<td>Social Work Practice with Individuals</td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-2102</td>
+<td>Social Work Practice with Groups </td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-2103 </td>
+<td>Social Work Practice with Communities</td>
+<td>3.0 </td>
+</tr>
+
+<tr>
+<td>BSW-2104 </td>
+<td>Social Development and Social Work </td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-2105 </td>
+<td>Introduction to Computing and Database Management </td>
+<td>3.0 </td>
+</tr>
+<tr>
+<td>BSW-2106</td>
+<td>Database Management and Programming- lab</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>BSW-2107</td>
+<td>Viva-Voce</td>
+<td>1.0</td>
+</tr>
+
+
+<tr>
+<th colspan="2"> Total</th>
+<td>18.0</td>
+</tr>
+
+</table>
+</form>
+<br/><br/>
+
+<!-- 2nd year 2nd semester-->
+
+<form>
+<table border="1">
+<tr>
+<th colspan="3">
+2<sup>nd</sup> Year 2<sup>nd</sup> Semester
+</th>
+</tr>
+
+<tr>
+<th>Course No.</th>
+<th>Course Title</th>
+<th>Credit</th>
+</tr>
+
+<tr>
+<td>BSW- 2251 </td>
+<td>Social Problem and Techniques of Problem Analysis</td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-2252</td>
+<td>Social Action, Social Legislation and Social Reform</td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-2253 </td>
+<td>Rural and Urban Development in Bangladesh</td>
+<td>3.0 </td>
+</tr>
+
+<tr>
+<td>BSW-2254 </td>
+<td>Social Policy and Planning </td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-2255 </td>
+<td>Gender Issues in Social Work Practice </td>
+<td>3.0 </td>
+</tr>
+
+<tr>
+<td>BSW-2256</td>
+<td>Viva-Voce</td>
+<td>1.0</td>
+</tr>
+
+<tr>
+<th colspan="2"> Total</th>
+<td>16.0</td>
+</tr>
+
+</table>
+</form>
+<br/><br/>
+
+
+<!-- 3rd year 1st semester-->
+
+<form>
+<table border="1">
+<tr>
+<th colspan="3">
+3<sup>rd</sup> Year 1<sup>st</sup> Semester
+</th>
+</tr>
+
+<tr>
+<th>Course No.</th>
+<th>Course Title</th>
+<th>Credit</th>
+</tr>
+
+<tr>
+<td>BSW- 3101 </td>
+<td>Human Rights and Social Justice</td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-3102</td>
+<td>Voluntarism, NGO’s and Social Welfare Service in Bangladesh </td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-3103 </td>
+<td>Disaster Management and Rehabilitation</td>
+<td>3.0 </td>
+</tr>
+
+<tr>
+<td>BSW-3104 </td>
+<td>Introduction to Social Research</td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-3105 </td>
+<td>Demographic Issues and Social Work</td>
+<td>3.0 </td>
+</tr>
+
+<tr>
+<td>BSW-3106</td>
+<td>Viva-Voce</td>
+<td>1.0</td>
+</tr>
+
+<tr>
+<th colspan="2"> Total</th>
+<td>16.0</td>
+</tr>
+
+</table>
+</form>
+<br/><br/>
+
+
+<!-- 3rd year 2nd semester-->
+
+<form>
+<table border="1">
+<tr>
+<th colspan="3">
+3<sup>rd</sup> Year 2<sup>nd</sup> Semester
+</th>
+</tr>
+
+<tr>
+<th>Course No.</th>
+<th>Course Title</th>
+<th>Credit</th>
+</tr>
+
+<tr>
+<td>BSW- 3251 </td>
+<td>Project Planning and Management</td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-3252</td>
+<td>Social Work Research: Method and Techniques</td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-3253 </td>
+<td>Globalization and Social Work</td>
+<td>3.0 </td>
+</tr>
+
+<tr>
+<td>BSW-3254 </td>
+<td>Labor Welfare and Industrial Relation</td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-3255 </td>
+<td>International Social Work</td>
+<td>3.0 </td>
+</tr>
+
+<tr>
+<td>BSW-3256 </td>
+<td>Social Welfare Administration </td>
+<td>3.0 </td>
+</tr>
+
+<tr>
+<td>BSW-3257</td>
+<td>Viva-Voce</td>
+<td>1.0</td>
+</tr>
+
+<tr>
+<th colspan="2"> Total</th>
+<td>19.0</td>
+</tr>
+
+</table>
+</form>
+<br/><br/>
+
+
+<!--4th year 1st semester-->
+
+<form>
+<table border="1">
+<tr>
+<th colspan="3">
+4<sup>th</sup> Year 1<sup>st</sup> Semester
+</th>
+</tr>
+
+<tr>
+<th>Course No.</th>
+<th>Course Title</th>
+<th>Credit</th>
+</tr>
+
+<tr>
+<td>BSW- 4101 </td>
+<td>Theories and Strategies for Social Work Practice</td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-4102</td>
+<td>Social and Behavioral Aspects of Public Health</td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-4103 </td>
+<td>Field Work: Education and Techniques</td>
+<td>3.0 </td>
+</tr>
+
+<tr>
+<td>BSW-4104 </td>
+<td>Introduction to Academic Writing</td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-4105 </td>
+<td>Statistics for Social Work Practice</td>
+<td>3.0 </td>
+</tr>
+
+<tr>
+<td>BSW-4106</td>
+<td>Statistics for Social Work- Lab</td>
+<td>2.0 </td>
+</tr>
+<tr>
+<td>BSW-4107</td>
+<td>Social Work Camping</td>
+<td>2.0 </td>
+</tr>
+
+<tr>
+<td>BSW-4108</td>
+<td>Viva-Voce</td>
+<td>1.0</td>
+</tr>
+
+<tr>
+<th colspan="2"> Total</th>
+<td>20.0</td>
+</tr>
+
+</table>
+</form>
+<br/><br/>
+
+
+<!-- 4th year 2nd semester-->
+<form>
+<table border="1">
+<tr>
+<th colspan="3">
+4<sup>th</sup> Year 2<sup>nd</sup> Semester
+</th>
+</tr>
+
+<tr>
+<th>Course No.</th>
+<th>Course Title</th>
+<th>Credit</th>
+</tr>
+
+<tr>
+<td>BSW- 4251 </td>
+<td>Practical Research</td>
+<td>4.0</td>
+</tr>
+
+<tr>
+<td>BSW-4252</td>
+<td>Comprehensive</td>
+<td>3.0</td>
+</tr>
+
+<tr>
+<td>BSW-4253 </td>
+<td>Seminar </td>
+<td>3.0 </td>
+</tr>
+
+<tr>
+<td>BSW-4254 </td>
+<td>Field Practicum</td>
+<td>6.0</td>
+</tr>
+
+<tr>
+<td>BSW-4255 </td>
+<td>Viva-voce (Theoretical & Practical)</td>
+<td>2.0 </td>
+</tr>
+
+<tr>
+<th colspan="2"> Total</th>
+<td>18.0</td>
+</tr>
+
+</table>
+</form>
+
+<div style="min-height: 90px; width: 100%; background-color: #f00;">
+	<p style=" text-align: center; color:#fff">	<a href="#syllabus_page" title="Go to top"> <svg xmlns="http://www.w3.org/2000/svg" style=" height:20px; width:20px; text-align: center; color:#fff; padding: 10px; cursor: pointer;" viewBox="0 0 320 512"><path d="M177 255.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 351.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 425.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1zm-34-192L7 199.7c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l96.4-96.4 96.4 96.4c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9l-136-136c-9.2-9.4-24.4-9.4-33.8 0z"/></svg>
+	</a></p>
+	<p style=" text-align: center; color:#fff; font-weight: bolder; padding: 7px;">&copy;Md Ashik Ali</p>
+
+</div>
+
+</div><!-- syllabus page end here-->
+
+
+
+
+
+<div id="contactMe" style="display:none" >
+
+
+
+<p><span style="font-size: 25px; font-family: 'arial black'; font-weight:bold;">I</span>
+am trying to do something new during the Covid-19 period. I think it is huge chance for us to
+do extra beyond our academic life. We shoul take this chance and do something. Actually I am
+interested on technology in bron. And I like to do practical something than theoritical. At present
+ I am trying to create and develop a web page, where I have to learn HTML, CSS, JavaScript, PHP MySQL and other
+ programming languages. And also need to learn adobe Photoshop and adobe Illustrator and others importent programs.
+
+ <H5 style="color:darkred;">***  Never forget to share your plans in this Lockdown times.I have shared my going...</h5>
+
+<div id="contactArea">
+<form class="contactArea">
+<table border="1">
+<tr>
+<th> Social Media Contact:</th>
+<td>
+<a href="tel: +880 1714-911463">
+<svg xmlns="http://www.w3.org/2000/svg" style=" height:30px; width: 30px;" viewBox="0 0 448 512"><path d="M224 122.8c-72.7 0-131.8 59.1-131.9 131.8 0 24.9 7 49.2 20.2 70.1l3.1 5-13.3 48.6 49.9-13.1 4.8 2.9c20.2 12 43.4 18.4 67.1 18.4h.1c72.6 0 133.3-59.1 133.3-131.8 0-35.2-15.2-68.3-40.1-93.2-25-25-58-38.7-93.2-38.7zm77.5 188.4c-3.3 9.3-19.1 17.7-26.7 18.8-12.6 1.9-22.4.9-47.5-9.9-39.7-17.2-65.7-57.2-67.7-59.8-2-2.6-16.2-21.5-16.2-41s10.2-29.1 13.9-33.1c3.6-4 7.9-5 10.6-5 2.6 0 5.3 0 7.6.1 2.4.1 5.7-.9 8.9 6.8 3.3 7.9 11.2 27.4 12.2 29.4s1.7 4.3.3 6.9c-7.6 15.2-15.7 14.6-11.6 21.6 15.3 26.3 30.6 35.4 53.9 47.1 4 2 6.3 1.7 8.6-1 2.3-2.6 9.9-11.6 12.5-15.5 2.6-4 5.3-3.3 8.9-2 3.6 1.3 23.1 10.9 27.1 12.9s6.6 3 7.6 4.6c.9 1.9.9 9.9-2.4 19.1zM400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM223.9 413.2c-26.6 0-52.7-6.7-75.8-19.3L64 416l22.5-82.2c-13.9-24-21.2-51.3-21.2-79.3C65.4 167.1 136.5 96 223.9 96c42.4 0 82.2 16.5 112.2 46.5 29.9 30 47.9 69.8 47.9 112.2 0 87.4-72.7 158.5-160.1 158.5z"/></svg>
+<span class="linkname">What`s App</span>
+</td>
+<td>
+<a href="https://www.facebook.com/ashik.khan989" target="blank"> <svg xmlns="http://www.w3.org/2000/svg" style=" height:30px; width: 30px;" viewBox="0 0 448 512"><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/></svg>
+<span class="linkname">Facebook </span></a>
+</td>
+<td>
+<a href="https://www.twitter.com/MdAshik68106288" target="blank">
+<svg xmlns="http://www.w3.org/2000/svg" style=" height:30px; width: 30px;" viewBox="0 0 448 512"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"/></svg>
+<span class="linkname"> Twitter</span></a>
+</td>
+
+<td>
+<a href="https://www.instagram.com/md_ashik_ali_khan/">
+<svg xmlns="http://www.w3.org/2000/svg" style=" height:30px; width: 30px;" viewBox="0 0 448 512"><path d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z"/></svg>
+<span class="linkname">Instagram</span></a>
+</td>
+
+</tr>
+<tr>
+<th>Personal Contact</th>
+<td>
+<a href="tel:+880 1628-315554">
+<svg xmlns="http://www.w3.org/2000/svg" style=" height:30px; width: 30px;" viewBox="0 0 448 512"><path d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM94 416c-7.033 0-13.057-4.873-14.616-11.627l-14.998-65a15 15 0 0 1 8.707-17.16l69.998-29.999a15 15 0 0 1 17.518 4.289l30.997 37.885c48.944-22.963 88.297-62.858 110.781-110.78l-37.886-30.997a15.001 15.001 0 0 1-4.289-17.518l30-69.998a15 15 0 0 1 17.16-8.707l65 14.998A14.997 14.997 0 0 1 384 126c0 160.292-129.945 290-290 290z"/></svg>
+<span class="linkname">Call Me</span></a>
+</td>
+
+<td>
+<a href="tel:+880 1714-911463">
+<svg xmlns="http://www.w3.org/2000/svg" style=" height:30px; width: 30px;" viewBox="0 0 320 512"><path d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"/></svg>
+<span class="linkname">Call Me</span></a>
+</td>
+
+<td>
+<a href="mailto: kmdashik635@gmail.com" target="blank">
+<svg xmlns="http://www.w3.org/2000/svg" style=" height:30px; width: 30px;" viewBox="0 0 576 512"><path d="M567.938 243.908L462.25 85.374A48.003 48.003 0 0 0 422.311 64H153.689a48 48 0 0 0-39.938 21.374L8.062 243.908A47.994 47.994 0 0 0 0 270.533V400c0 26.51 21.49 48 48 48h480c26.51 0 48-21.49 48-48V270.533a47.994 47.994 0 0 0-8.062-26.625zM162.252 128h251.497l85.333 128H376l-32 64H232l-32-64H76.918l85.334-128z"/></svg>
+ <span class="linkname">Mail</span></a>
+</td>
+<td>
+<a href="mailto: mdashika989@yahoo.com" target="blank">
+
+<svg xmlns="http://www.w3.org/2000/svg" style=" height:30px; width: 30px;" viewBox="0 0 448 512"><path d="M252 292l4 220c-12.7-2.2-23.5-3.9-32.3-3.9-8.4 0-19.2 1.7-32.3 3.9l4-220C140.4 197.2 85 95.2 21.4 0c11.9 3.1 23 3.9 33.2 3.9 9 0 20.4-.8 34.1-3.9 40.9 72.2 82.1 138.7 135 225.5C261 163.9 314.8 81.4 358.6 0c11.1 2.9 22 3.9 32.9 3.9 11.5 0 23.2-1 35-3.9C392.1 47.9 294.9 216.9 252 292z"/></svg>
+<span class="linkname">Yahoo Mail</span></a>
+</td>
+
+</tr>
+</table>
+</form>
+
+</div>
+
+</div>
+
+<!-- Academic arear page here-->
+
+
+<div id="bsw1251" style="display: none">
+Hello BSW 1251
+</div>
+
+
+<div id="bsw1252" style="display: none"><!--style="display: none"-->
+	<div class="chapter_nav">
+		<input type="checkbox" id="chpater_check2"/>
+		<label for="chpater_check2">
+			<svg xmlns="http://www.w3.org/2000/svg" id="manu2" class="svg" viewBox="0 0 448 512">Menu<path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg>
+			<svg xmlns="http://www.w3.org/2000/svg" id="cloge2" class="svg" viewBox="0 0 352 512"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/></svg>
+		</label>
+		<div class="chapter_conteiner">
+			
+			<ul>
+				<li><a href="#chapter21">Question-1</a></li>
+				<li><a href="#chapter22">Question-2</a></li>
+				<li><a href="#chapter23">Question-3</a></li>
+				<li><a href="#chapter24">Question-4</a></li>
+				<li><a href="#chapter25">Question-5</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="chapter21">
+		<h4>BSW-1252</h4>
+		<h5>Bangladesh Studies</h5>
+		<h6>Department of Social Work</h6>
+		<br/>
+		<hr/>
+		<br/>
+
+		<h4>Answer to the question no-01(a)</h4>
+		<h4>Janapadas</h4>
+
+		<p>
+			The state as undivided Bebgal was not born at a time. It flourished through Janapadas. From different inscriptions and literary works, we came to know about sixteen Janapadas of Bengal.
+		Some of them discuss bellow:
+		</p>
+		<p><strong>Gaur: </strong>
+			Though the name of <b>Gaur'</b> seems familiar, there are no clear ravidences about which area was referred to as Gaur in ancient time. In the 7th century, Sasanka was called the Gaurraj (King of Gaur). Its capital was Karnasubarna. Gaur was situated at the present Murshidabad.
+		</p>
+		<p><strong>Banga: </strong>
+			Bengal was a very ancient Janapada. A Janapada named Banga was built to the east and the south-east of present Bangladesh. It is surmised that a nation named 'Banga' lived here.
+		</p>
+		<p><strong>Pundra: </strong>
+			Pundra was one of the most important Janapada of ancient Bengal. It is said tht a nation called Pundra built up thid Janapada. Pundra of that time was extended at least across the regions of Bogura, Rangpur, Dinajpur and Rajshahi. Pundranagar was the name of the capital of the Pundras.
+		</p>
+		<p><strong>Harikela: </strong>
+			The writers of the seventh century have also discribed another region called Harikela. Harikela was situated at the end of eastern Bengal. It can be assumed that Harikela spread from Sylhet to Chittagong at the present time.
+		</p>
+		<p><strong>Samatata: </strong>
+			Samatata was situated in the east and south-east Bengal as a neighboring janapada of Banga. Some think that Samatata was the ancient name of present Cumilla. In the  seventh century its capital was the place name Bara Kamta, 12 miles west of Cumilla city.
+		</p>
+		<p><strong>Barendra: </strong>
+			Another Janapada of ancient Bengal could be known in the name of Barendree, Barendra or Barendra Bhumi. It was also a janapada of North Bengal. It is thought that Barendra was located in the vast area of Pundra. The Barendra region was ectended across a vast area of Bogura, Dinajpur and Rajshahi region as well as probably of Pabna region.
+		</p>
+		<p>We get a fair conception of geographical shape, demarcation, political characteristics of the then Bengal from the Janapada of ancient Bengal. Then there was no political unity in ancient Bengal.</p>
+
+		<hr style="border: 1px dotted #005;"/>
+
+		<h4>Answer to the question no-01(b)</h4>
+		<h4>Sasanka</h4>
+
+		<p>The identity, his rise and the life of Sasanka are not clear to the scholars. A ruler ofa large region under the Gupta kings was called 'Mahasamanta'. It is thought that Sasanka was a 'Mahasamanta' of Gupta king Mahasenagupta and may be his son or nephew. </p>
+		<p>The capital of Sasanka was Karnasubarna. After estublished his possession in Gaur he atarted to extend his kingdom to neighboring regions. He ectended his border conquering  Dandobhukti(Medinipur), Utkal of Odisha(north Odisha) and Konghod(South Odisha), Magadha of Bihar. His kingdom was extended to Varanasi to the west. The king of Kamrupa(Assam) was also defeated by him. Then he paid attention to the west border of the kingdom. </p>
+		<p>Sasanka was a follower of Shaiba religion. Hiuen-Tsang called him spiteful of Buddhism. But, there is no strong evidence about the matter till today. Sasanka is a notable name in the seventh century histiory of Bengal. He was the first important sivereiogn ruler in the history of ancient Bengal.</p>
+
+
+	</div>
+
+	<br/>
+		<hr/>
+		<br/>
+
+
+	<div id="chapter22">
+		Hello Qurstion two
+	</div>
+	<br/>
+		<hr/>
+		<br/>
+	<div id="chapter23">
+		Hello Question three
+	</div>
+	<br/>
+		<hr/>
+		<br/>
+	<div id="chapter24">
+		<h4>Answer to the question no-04(a)</h4>
+		<h4>The causes of the Battle of Plassey</h4>
+		<p>The battle of Palassey was such an event for the people of this rtegion that acn cause fearful disaster in the fate of the people of a country. The causes of this event are mentioned below:</p>
+		
+		<p>
+			<ul>
+		<li>As per tradition, the English did not send any gift to new Nawab after Sirjuddoula ascended to the throne of Bengal and did not pay a courtesy visit. Nawab became very angry art such misconduct of the Engkish.</li>
+		<li>The English kept building their fort despite his prohibition.</li>
+		<li>The English company having abused the trade conditions, the national merchants started to be losers. Nawab forbade abusing the conditions and ordered to abide by. The company also defined that order.</li>
+		<li>The English refused to pay tax by breaching the agreement with Alibardi Khan.</li>
+		<li>Krishnodas, son of Raja Rajballab, together with the family members taking a lot of riches took shelter to the English in Kolkata. Nawab send messenger to the English to send him back. But English governor insulted the messenger of the Nawab and drove him away.
+			Before that during the rebellion of Shawkat Jang the English supported the rebels against the Nawab.
+		</li>
+		The manners of arrogance and disobediebce of the  English one after another infuriated the Nawab. In order to teach them a good lesson Nawab occupied Kolkata at the commercial office of Kashimbazar. 
+	</ul></p>
+
+	<h4>Answer to the question no-04(b)</h4>
+	<h4>Six Points</h4>
+	<p>
+		To get rid of the colonial rule and exploitation of the Pakistan, Bangabandhu Sheikh Mujibur Rahman announced the six points program in 1966. The purpose of Bangabandhu was to free East Pakistan from the dsicrimination through realising Six Points semand. Basically after the end of the war between India and Pakistan, 
+		Bnagabandhu raised voice against the extreme negligence of the West Pakistan. Government to the security of East Pakistan. and limitless disparty toward East Pakistan Opposition leaders convened a conference on 5-6 February in 1966 in Lahore. Bangabandhu reached Lahore along with the tio Awami League leaders. In the conference 
+		Bangabandhu presented the 'Six Points' demand which was rejected by the leaders of the conference.Bangabandhu walked out of the conference and returned to Dhaka disclosing Six Points to the press. On 21<sup>st</sup> February a pamphlet titled 'Amader Bachar Dabi: Choy Dafa Karmashuchi' (Our Demand for Survival: Six Points Program) 
+		was published in the name of Bangabandhu. The Six Points were as follows:
+		<ol>
+			<li>The constitution should provide for a Federation of Pakistan in its true sense on the  basis of the Lahore Resolution and the Parliamentary form of government with supremacy of a Legislature directly elected on the basis of universal adult franchise.</li>
+			<li>The federal government should deal with only two subjects: Defence and Foregin Affairs. All other residuary subjects shall be vested in the federal states.</li>
+			<li>Two separate, but freely convertible currencies for two woings should be introduce; or if this is not feasible, there should be one currency for the whole country.But effective constitution provisitions should be introduce to stop the flight of capital from East to West pakistan.</li>
+			<li>The power of taxation and revenue collection shall be vested in the federating units. The federation will be entitled to deposit a certain portion in the fedearal fund. The federal government shall use this fund to meet its expenditures.</li>
+			<li>The federal units shall have the full authority to regulate foregin exchenge earnings and trade links. The foregin exchange requirements of the federal government should be met by the two wings equally or in a ratio to be fixed.</li>
+			<li>To safeguard regional solidarity and national security the provinces should have the suthority to form and control their own militiaor paramilitary force.</li>
+		</ol>
+		</p>
+		<p>
+		The six points of Bangabandhu was accepted in the Working Committee meeting of the Awami League held on 13 March 1966. Then Bangabandhu campaigned for creating public opinion in favor of the Six Points. He went to different places and delivered apeech on this . He termed these Six Points as our demand for survival. As a result of Bangabandhu's campaign, Six Points gained public support very rapidly. 
+		 Being panicked the Government of Ayub Khan started arresting the leaders and activities of the Awami League. During this time Ayub Khan visited East Pakistan and delivered speeches in various public meetings where he termed Six Points as seditious asd a threat of the unity. The government of Ayub Khan arrested Bangabandhu on 9 May in 1966 as Six Points gained popularity day by day. On 7<sup>th</sup> 
+		 June a general strike was observed to protrest the arrest of Bangabandhu. During hartal a number of individuals were killed in police firing. In protest of this killing opposition stage walk out from the Provincial Assembly on 8 June. In 1968 the Government put Bangabandhu on trial accusing him in the  historic Agartala Case. The case led to mass upsurge in 1969 and the government was forced to release Bangabandhu 
+		 Sheikh Mujibur Rahman. The key factor in Awami league's election manifasto in 1970 was this Six Points program. The Awami League sought public mandate in favor of the Six Points program in the general election of 1970. A landside victory was gained with the absolute mandate from the people of East Pakistan in favor of Six Points program. Yet, this Six Points program could not be implemented. The Six Points program 
+		 ended with the commencement of the War of Liberation that followed the genocide caused  by the Pakistan occupational force. After Wards Bangladesh gained independence after nine months Liberation war.
+	</p>
+
+	</div>
+	<br/>
+		<hr/>
+		<br/>
+	<div id="chapter25">
+		<h4>Answer to the question no-05(a)</h4>
+		<h4>The Significance of the Language Movement</h4>
+		<p>
+			The language movement is an extraordinary event in the histoiry of Bangladesh. This was the first protest against the discrimination of Pakistan. This incident was the first impeteus of the Bangalees for Bangalee Nationalism. The Bangalss had a long history of deprivation and exploitation by the 
+			west Pakistan government since the creation of Pakistan in 1947. Disrespect of their own mother tongue, Bangla, stirred the sentiment of the whole nation. People understood that their language, culture and economy in a word nothing was safe in the  hands of the Pakistan. In this way, the seed of the Bangalee nationalism was sown among the Banglaee.
+		</p>
+
+		
+		<h4>Answer to the question no-05(b)</h4>
+		<h4>The Genocide of 25<sup>th</sup>March</h4>
+		<p>
+			A disgreceful chapter opened up in the history of the Bangalees as well as the world at the midnight of March 25 in 1971. At taht time, the Pakisan army atteacked the unarmed, innocent, freedom loving, common people of East Pakistan and committed random acts of assassination. Pakistan named that mission 'Operation Searchlight'. Though that operation was launched on March 25, they had planned the attack in the beginning of March. 
+			On 18 March Tikka Khan and Rao Forman Ali designed the blue print of the ruthless killing of the Bangalees known as 'Operation Searchlight'. The disarmamnet of the Bangalee solidiers of East Bengal Regiment started from March 19 in East Pakistan. On March 20 the government issued an order to surrender weapons. On that very day, the military preparation in Dhaka cantonment was given a complete shape by Genertal Yahiya Khan, his 
+			military advisor Hamid Khan, Tikka Khan, General Peerjada, Genetal Omar Faruk and others. During that time 6 to 17 PIA flights Boeing 707 flew to Dhaka every day carring soldiers, arms and amunitions; while ships were anchored Chittagong port loaded with soldiers and weapons. The unloading of weapons and foodstuff MV Sowat started on March 24 at Chittagong port. When all preparation were made, March 25 was choosen for launching 
+			the genocied. Major General Rao Forman Ali was assigned with the main charge of Dhaka city.
+		</p>
+		<p>
+			Attacks on Dhaka University dormitories started at  dead of noth. Acts of killing and brutal assaults continued in Jahurul Hoque Hall, Jagannth Hall anf Rokeya Hall. Mass killing was taking place on the same fashion on old Dhaka, Kachukhet, Tejgaon, Indiora Road, Mirpur, Mohammadpur, inside Dhaka airport, Rayer Bazaar, Ganaktuli, Dhanmondi, Kalabagan, Kathalbagan and other places. Genocide also started in other places of the country.
+		</p>
+	</div>
+	<div style="min-height: 90px; width: 100%; background-color: #f00;">
+		<p style=" text-align: center; color:#fff">	<a href="#bsw1252" title="Go to top"> 	<svg xmlns="http://www.w3.org/2000/svg" style=" height:20px; width:20px; text-align: center; color:#fff; padding: 10px; cursor: pointer;" viewBox="0 0 320 512"><path d="M177 255.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 351.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 425.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1zm-34-192L7 199.7c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l96.4-96.4 96.4 96.4c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9l-136-136c-9.2-9.4-24.4-9.4-33.8 0z"/></svg>
+		</a></p>
+		<p style=" text-align: center; color:#fff; font-weight: bolder; padding: 7px;">&copy;Md Ashik Ali</p>
+
+	</div>
+</div>
+
+
+
+<div id="bsw1253" style="display: none"><!--style="display: none"-->
+
+	<div class="chapter_nav">
+		<input type="checkbox" id="chpater_check"/>
+		<label for="chpater_check">
+			<svg xmlns="http://www.w3.org/2000/svg" id="manu" class="svg" viewBox="0 0 448 512">Menu<path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg>
+			<svg xmlns="http://www.w3.org/2000/svg" id="cloge" class="svg" viewBox="0 0 352 512"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/></svg>
+		</label>
+		<div class="chapter_conteiner">
+			
+			<ul>
+				<li><a href="#chapter31">Chapter-1</a></li>
+				<li><a href="#chapter32">Chapter-2</a></li>
+				<li><a href="#chapter33">Chapter-3</a></li>
+				<li><a href="#chapter34">Chapter-4</a></li>
+				<li><a href="#chapter35">Chapter-5</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="chapter31">
+		<h4>BSW-1253</h4>
+		<h5>Human Physiology: Growth and Development</h5>
+		<h6>Deaprtment of Social Work</h6>
+	
+		<br/>
+		<hr/>
+		<br/>
+		<h5>Chapter-1</h5>
+		<h5>Human Physiology and Behavior</h5>
+	<p>
+		<strong>Human Physiology:</strong> It is a brance of behavior that deals with the function and activities of 
+		living matter and the physical and chemicla processes and mechanisms involved.
+	</p>
+	<p>
+		It is the science of the mechanical, physical  and biological functions of normal humands or human tisssues or organs.
+		For example, endocrine and nervous systems of human body perform major role in the reception and transmission of signals that integrate function in animals.
+	</p>
+	<p>
+		The study of physiology  occurs at many levels, including organisms, oragans, organ systems, cells, and bimolecules. The principal level of focus of physiology is at the level of organs and systems.
+	</p>
+	<p>
+		<strong>Anatomy:</strong>
+		It is the study of the form and structure and relationships among the various body parts.
+		Physiology is closely related to anatomy and they are intrinsically linked.
+	</p>
+
+	<table border="1" align="center">
+		<tr>
+			<th>Anatomy</th>
+			<th>Physiology</th>
+		</tr>
+		<tr>
+			<td>It is the study of the physical structure and apearance of the body.</td>
+			<td>It is the study of the internal functions of the body.</td>
+		</tr>
+		<tr>
+			<td>It deals with the structure of the parts of an organism.</td>
+			<td>It deals with the way taht the parts function together.</td>
+		</tr>
+		<tr>
+			<td>It works on to identify the bone or organ diseases or dsicrepancies by various instrumental techniques</td>
+			<td>It works on the understanding od curing the internal function errors.</td>
+		</tr>
+		<tr>
+			<td>It has only two sub-branches, e.g., organ structure and their form and position.</td>
+			<td>It has many subdivisions, e.g., respiratory system, nervous systerm, digestive system etc.</td>
+		</tr>
+		
+	</table>
+
+	<br/>
+		<p>
+			<strong>Homeostasis:</strong>
+			It means maintenance of static or constant conditions in the enternal environment of teh body.
+			all the tissues of the body help to maintain these constant conditions.
+		<strong>Examples:</strong>
+		<ul >
+			<li>Lung provides O<sub>2</sub> to the cell & eliminates CO<sub>2</sub>
+			and other volatile metabolic end products from cell.
+			</li>
+			<li>Kidney maintains constant ionic concentration.</li>
+			<li>GIT always provide nutrition to the cell.</li>
+		</ul>
+		</p>
+		<br/>
+
+		<p>
+			<strong>Behavior:</strong>
+			It is the range of action and mannerisms made by individuals, organisms, systems or artificial entities in conjubction with 
+			themselves or their environment, which includes the other organs or systems around as well as the physical environment. It is 
+			the respons of the syste or organism to various stimuli or inputs, whether internal or external, consious or subconsnious and 
+			voluntary or invluntary.
+		</p>
+		<p>
+			<strong>Human Behavior: </strong>
+			It refers to the full range of physical and emotional behaviors that humans angage in biologically, intellectually etc. and are influenced by culrure, attitudes, emotions, values, ethics, authority, rapport, and genetics.
+			<p>It is capacity of mental,physical, emotional and social activities experienced during the five stages of a human being's life- prenatal, infency, childhood, adolesence and adulthood.</p>
+		</p>
+
+		<strong style="margin-left: 10px">Factors affecting human behavior:</strong>
+		<p>
+			<ol>
+				<li><strong>Genetics: </strong>Charles Darwin in his book <i>On the Origin of Species</i> proposed that, the pattern of behavior are somehow influenced by  inheritance from parents.</li>
+				<li><strong>Social Norms: </strong> Social norms, the unspoken group of rules, shape not just our behavior but also our attitude. An individual's behavior varies depending on the  groups they are a part of. Without social norms, human society wolud not function.</li>
+				<li><strong>Creativity: </strong> Creativity is assumed to be present within every individual. Creativity pushes people past their comfort zone. Creatrivity has kept people alive during harsh condition and it  has also made certain individuals wealthy. We use creativity in our daily lives as well. </li>
+				<li><strong>Core faith/ beliefs: </strong> Core faith can be manifasted in the froms of religion, philosophy, culture and personal belief and often affects the way a person can behave</li>
+				<li><strong>Religion: </strong> Religious belief plays a large importance in society to have a effect on human behavior.</li>
+				<li><steong>Morals and Emotions: </steong>Morals are another factor of core faith that affects the way a person behaves. Emotoins connected to morals including shame, pride and discomfort and these can change the way a person acts.</li>
+				<li><strong>Culture: </strong> The beliefs of certain cultures are taught to children from such a young age that they are greatly affected as they grow up.</li>
+				<li><strong>Attitude: </strong> It is an espression of favor or disfavor toward a person, place, thing or event. The attitude of human beings alters among each individual. Everyone has a different attitude towards different things</li>
+				<li><strong>Motivation: </strong>It may influence a person to behave positively towards a negative situation or vice versa.</li>
+				</ol>
+		</p>
+		<p style="text-align: center;"><b><u><i style="font-family: 'roboto',sans-serif;">End<sup style="color: #004;">Chapter-1</sup></i></u></b></p>
+
+
+		</div>
+
+		<br/>
+		<hr/>
+
+		<br/>
+	<div id="chapter32">
+		<hr style="border: 1px dotted #005;" />
+		<h5>Chepter-2</h5>
+		<h5>Basic Structure of Human Body:</h5>
+		<h6>Part-1 :: Nervous System</h6>
+
+		<p><strong>Defination: </strong>
+			Nervous system is a network od specialized cell that communicate information about an organism surrounding and itself. It passes this information and causes the reaction in other parts of the body.
+		</p>
+
+		<p>
+			It is composed of <b>neurons</b> and <b>glial cell</b> and that cells aided the function of the neuron. The neurons of the nervous system of animals are interconnected in complex arrangement and use electrochemical signals and neurotransmiters to trandmit impulse from one neuron to the next.
+		</p>
+
+		<p>
+			The human nervous system contains approximately 10 billion nerve cells/neurons. The neurons are the basic bulding blocks of the nervious system.
+		</p>
+
+		<p><strong>Histological or Structural classification of nervous system: </strong>
+			Histologically human nervous system has two(2) distinct parts:
+			<ol style="list-style-type: lower-roman;">
+				<li>Central part and
+					<ol>
+						<li>Brain</li><li>Spinal Cord</li>
+					</ol>
+				</li>
+
+				<li>Peripheral part.
+					<ol>
+						<li>Craniospinal nerves</li><li>Visceral nervous system</li>
+					</ol>
+				</li>
+			</ol>
+			The central part is made up of the brain and spinal cord. Together they are called as Central Nervous System (CNS). The peripheral part of the nervous system is so called because it is outside of the CNS. The function of the peripheral nervous system is to transmit information back and forth between the CNS and rest of the body.
+		</p>
+
+		<p><strong>Functional classification of nercous system: </strong>
+		<ol>Divition:
+			<li>Central or Somatic
+				<ol style=" list-style-type:lower-roman">Function:
+					<li>Afferent
+						<ol style="list-style-type: lower-latin;">
+							<li>Sensory
+								<ol style="list-style-type:circle">
+									<li>Special Senses
+										<ol style="list-style-type: square;">
+											<li>Visition</li>
+											<li>Hearing</li>
+											<li>Tasts</li>
+											<li>Smell</li>
+										</ol>
+									</li>
+									<li>General Senses
+										<ol style="list-style-type: square;">
+											<li>Touch</li>
+											<li>Pain</li>
+											<li>Temperature</li>
+										</ol>
+									</li>
+								</ol>
+							</li>
+							<li>Non-sensory</li>
+						</ol>
+					</li>
+					<li>Efferent</li>
+					<li>Associative</li>
+				</ol>
+			</li>
+			<li>Autonomic</li>
+		</ol>
+		</p>
+
+		<p>
+			<strong>Composition of nervous system: </strong>
+			It is consisted with following two types of substances:
+			<ol>
+				<li><strong>Gray matter: </strong> Gray matter is composed of the <b>nerve cells</b>. In the cerebrum and cerebellum gray matter remains on the surface and in the spinal cord it remains in the center.</li>
+				<li><strong>White matter: </strong>White matter is composed of <b>nerve fivers</b>. In the cerebrum and cerebellum white matter remains in the interior and in the spinal cord it remains on the surface.</li>
+
+			</ol>
+		</p>
+
+		<p>
+			<strong>Chemical composition of nervous system: </strong><br/>
+			The chief characteristic of nervous tissue is the high <b>cholesterol </b> and <b>phospholipid</b> content. The gray matter contains more water and less solid than the white matter.<br/>
+			The average composition of the gray matter and the white matter is as folows:
+			<table border="1">
+				<tr>
+					<th style="width: 60%;">Components:</th> <th style="width: 20%;">White matter</th><th style="width: 20%;">Gray matter</th>
+				</tr>
+				<tr>
+					<td>1. Water</td><td>70%</td><td>84%</td>
+				</tr>
+				<tr>
+					<td>2. Solids</td><td>30%</td><td>16%</td>
+				</tr>
+				<tr>
+					<td>a. Proteins: Including globulins, neucleoproteins, neurikeratin etc.</td><td>10%</td><td>8%</td>
+				</tr>
+				<tr>
+					<td>b. Fats:
+						<ol style="list-style-type: lower-roman;">
+							<li>Phospholipids </li>
+							<li>Cholesterol</li>
+							<li>Traces of the netural fats</li>
+						</ol>
+					</td>
+					<td>
+						<ol style="list-style-type: none;">
+							<li></li>
+							<li>13.5%</li>
+							<li>8.5</li>
+							<li>5%</li>
+						</ol>
+					</td>
+					<td>
+						<ol style="list-style-type: none;">
+							<li>4.4%</li>
+							<li>3.7</li>
+							<li>0.7%</li>
+						</ol>
+					</td>
+				</tr>
+
+				<tr>
+					<td>c. Carbohydrates: Including cerebroside, traces of glucose & glycogen</td>
+					<td>5%</td><td>3%</td>
+				</tr>
+				<tr>
+					<td>d. Inorganic salts: Include mainly potassium salts but also contains Na<sup>+</sup>, Ca<sup>2+</sup> and traces of other inorganic salts.</td>
+					<td>0.8%</td> <td>0.8%</td>
+				</tr>
+				<tr>
+					<td>e. Extractives : Include ammonia, lactic acid, areatine phosphate etc.</td><td>Traces amount</td>
+					<td>Traces amount</td>
+				</tr>
+			</table> 
+		</p>
+
+		<p><strong>Neuron: </strong>
+			A nerve cell with all its processes is called neuron. Neuron is the structural and functional unit of nervous system. It contains of <b>cell body</b> or <b>soma</b> and two types of processes- <b>Axon</b> and <b>Dendrite.</b>
+		</p>
+
+		<p>
+			 <strong> Different part of neuron: </strong>
+			 <ol style="list-style-type: lower-roman;">
+				 <li><p><strong>Axon:</strong> It is the process of a nerve cell body that carries impulse away from it. Nerve fiver which carry impulse to the CNS are called <b>afferent</b> and those carry impulse from the CNS to the periphery are known as <b>efferent</b>. It is generally long with few branches.</p>
+				<p>Axon may be covered with an insulating layer called <b>myelin sheath,</b> which is formed by <b>schwann cells</b>. The myelin sheath is not continuos but divided into sections, aeparated at a regular intervals by the <b>nodes of Ranvier.</b></p></li>
+				
+				<li><p><strong>Dendrite:</strong> It is the process that collects impulse from other neurons and carries them towards the cell body. It is generally short with many branches and the number of branches varies from zero to numerous.</p></li>
+				<li><p><strong>Cell body / Soma: </strong> It is enlarged portion of a neuron that most closely resembled other cells. It coordinates the metabolic activity of the neuron.</p></li>
+			</ol>
+		</p>
+
+		<p>
+			<strong>Synapse: </strong>
+			Synapse is the junction region where one neuron ends and the other begins. In a synapse, the terminal branches of the axon(presynaptic cell) of a neuron come in contact with the cell body or the dendrites of another(postsynaptic cell).
+		</p>
+
+		<p>
+			<strong>Functoinal anatomy of synapse: </strong>
+			Before synapsing with a cell body or dendrites, the axon terminal of the presynaptic neuron is called synaptic knob or terminal knob or buton. The membrane of the synaptic knob is calles presynaptic membrane and that of the cell body or dendrites of the post synaptic neuron is called postsynaptic membrane.
+			 Both these membrane are separeted by synaptic cleft having a width of 200-300 angstroms. The presynaptic knob contains numerous mitocondria and vesicles which contain neurotransmitter substances. The mitocondria supplies energy that is needed for the synthesis of the neurotransmitter substances.
+		</p>
+
+		<hr style="border: 2px dotted #005;" />
+	</div>
+
+
+	<br/>
+	<hr/>
+	<hr/>
+	<br/>
+
+
+	<div id="chapter33">
+		Hello chapter three
+	</div>
+
+
+	<br/>
+	<hr/>
+	<hr/>
+	<br/>
+
+
+	<div id="chapter34">
+		Hello chapter four
+	</div>
+
+
+	<br/>
+	<hr/>
+	<hr/>
+	<br/>
+
+
+	<div id="chapter35">
+		Hello chapter five
+	</div>
+
+
+	<br/>
+	<hr/>
+	<hr/>
+	<br/>
+
+	<div style="min-height: 90px; width: 100%; background-color: #f00;">
+		<p style=" text-align: center; color:#fff">	<a href="#bsw1253" title="Go to top"> 	<svg xmlns="http://www.w3.org/2000/svg" style=" height:20px; width:20px; text-align: center; color:#fff; padding: 10px; cursor: pointer;" viewBox="0 0 320 512"><path d="M177 255.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 351.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 425.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1zm-34-192L7 199.7c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l96.4-96.4 96.4 96.4c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9l-136-136c-9.2-9.4-24.4-9.4-33.8 0z"/></svg>
+		</a></p>
+		<p style=" text-align: center; color:#fff; font-weight: bolder; padding: 7px;">&copy;Md Ashik Ali</p>
+
+	</div>
+</div><!-- BSW - 1253 chapter one end here-->
+
+
+
+<div id="bsw1254" style="display: none">
+	<div class="chapter_nav">
+		<input type="checkbox" id="chpater_check4"/>
+		<label for="chpater_check4">
+			<svg xmlns="http://www.w3.org/2000/svg" id="manu4" class="svg" viewBox="0 0 448 512">Menu<path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg>
+			<svg xmlns="http://www.w3.org/2000/svg" id="cloge4" class="svg" viewBox="0 0 352 512"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/></svg>
+		</label>
+		<div class="chapter_conteiner">
+			
+			<ul>
+				<li><a href="#chapter41">Chapter-1</a></li>
+				<li><a href="#chapter42">Chapter-2</a></li>
+				<li><a href="#chapter43">Chapter-3</a></li>
+				<li><a href="#chapter44">Chapter-4</a></li>
+				<li><a href="#chapter45">Chapter-5</a></li>
+			</ul>
+		</div>
+	</div>
+	Hello BSW 1254
+</div>
+
+
+<div id="bsw1255" style="display: none">
+	Hello BSW 1255
+</div>
+
+<!-- academic page end here-->
+
+
+
+
+
+<!-- about me that means  it contains my personal CV-->
+
+<div id="about" style="display: none;">
+
+
+<section class="cv_head">
+	<div class="image">
+<img style="height: 100px; width: 100px;" src="G:\Picture\Edit pic/IMG_1786-01.jpeg">
+</div>
+<div class="cvname">
+<span class="cv_name">Md Ashik Ali</span>
+<span class="cv_title">Web Designer</span>
+</div>
+
+<div class="head_link">
+	<li>Web: <a href="https://www.facebook.com/ashik.khan989" target="blank">www.facebook.com/ashik..,</a></li>
+	<li>Mail: <a href="mailto: kmdashik635@gmail.com">kmdashik635@gmail.com</a></li>
+	<li>Twitter: <a href="https://www.twitter.com/MdAshik68106288">www.twitter.com/MdAshik...</a></li>
+	<li>Mobail: <a href="tel: +880 1628 316=5 554">+88016 2831 5554</a></li>
+</div>
+<div class="cv_clear"></div>
+</section>
+
+
+<section class="cv_personal">
+<div class="personal_left">
+ <h3>Personal Information: </h3>
+</div>
+<div class="personal_right">
+	<ul class="cv" style="list-style:noe">
+		<li><strong>Present Address: </strong>Vill: Rampur, Word: Pangashiya/04, Union: Chamari/05, Upozilla: Singra, District: Natore, Dhaka, Bangladesh</li>
+		<li><strong>Gender: </strong>Male</li>
+		<li><strong>Date of Birth: </strong>30 December. 1999.</li>
+		<li><strong>Religion: </strong>Islam</li>
+		<li><strong>Marital Status: </strong>Single</li>
+		<li><strong>Nationality: </strong>Banladeshi</li>
+
+	</ul>
+</div>
+<div class="cv_clear"></div>
+</section>
+
+
+<section class="cv_education">
+<div class="education_left"><h3>Education: </h3>
+</div>
+<div class="education_right">
+	<div class="edu_bss">
+		<ul style="list-style: none">
+			<h4 class="edu_head">BSS(Honours):</h4>
+			<li><strong>Subject:</strong> Social Work</li>
+			<li><strong>Institution:</strong> Pabna Univarsity of Science and Technology.</li>
+			<li><strong>Passing Year: </strong>Present</li>
+			<li><strong>Result: </strong>CGPA-<span style="color: #00f; font-family: 'roboto', sans-serif; font-weight: bold;">Loading...</span></li>
+		</ul>
+	</div>
+	<div class="edu_hsc">
+		<ul style="list-style:none">
+			<h4 class="edu_head">HSC:</h4>
+			<li><strong>Group: </strong>Humanities</li>
+			<li><strong>Board: </strong> Rajshahi</li>
+			<li><strong>Institution: </strong>Chamari Deggre College, Natore</li>
+			<li><strong>Passing Year: </strong> 2018</li>
+			<li> <strong>Result:</strong>GPA-4.58</li>
+		</ul>
+	</div>
+	<div class="edu_ssc">
+		<ul style="list-style: none">
+			<h4 class="edu_head">SSC:</h4>
+			<li><strong>Group: </strong>Humanities</li>
+			<li><strong>Board: </strong> Rajshahi</li>
+			<li><strong>Institution: </strong>Bahadurpur High School,Singra, Natore</li>
+			<li><strong>Passing Year: </strong> 2016</li>
+			<li> <strong>Result: </strong>GPA-4.50</li>
+		</ul>
+	</div>
+</div>
+<div class="cv_clear"></div>
+</section>
+
+
+
+<section class="cv_skill">
+<div class="skill_left">
+	<h3>IT-Skills:</h3>
+</div>
+<div class="skill_right">
+	<p>
+		I have a lot of Information Technologycal skills. Actually, I am too much interested to IT practice in born.
+		In the secondary education I had the optional subject was Computer. So, I had acquired a lot of skills and knowledge 
+		on the computer, many of Softwere,  hardwere and other many proggrame. And then during the  heigher secondary education 
+		, we had the compulsory subject was Information and Communication Technology(ICT), in that time I had gained a lot of IT 
+		skills. In this vacation I am spending my maximum time on developing my IT skills and knowledge.
+		<br/>
+		My IT skills are pointed out bellow: 
+		<ul class="ul_skill">
+			<li>MS word</li>
+			<li>MS Excel</li>
+			<li>MS PowerPoint</li>
+			<li>MS Access</li>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JavaScript</li>
+			<li>Bootstrap</li>
+			<li>Web Browsing</li>
+			<li>Adobe Photoshop</li>
+			<li>Adobe Illustrator</li>
+		</ul>
+	</p>
+</div>
+<div class="cv_clear"></div>
+</section>
+
+
+
+<section class="cv_language">
+<div class="lan_left">
+	<h3>Language: </h3>
+</div>
+<div class="lan_right">
+	<ul>
+		<li><strong>Bengali: </strong> Excellent in Reading, Writing and Speaking.</li>
+		<li><strong>English: </strong> Exllent in Reading, Writing and good in Speaking.</li>
+	</ul>
+</div>
+<div class="cv_clear"></div>
+</section>
+
+
+<section class="interset">
+<div class="interest_left">
+	<h3>Interest/Hobby</h3>
+</div>
+<div class="interest_right">
+	<ul>
+		<li>Playing : Cricket, Football, Voli-Ball. Badminton etc.</li>
+		<li>Traveling : I am interested to visit historical and natural beauty places.</li>
+		<li>Eating : I love to eat different foods and fruits.</li>
+		<li>Planting : Especially, to plant fruit's tree.</li>
+		<li>I am interested scientific and observational issues.</li>
+		<li>Reading Joxx</li>
+		<li>Watching movies and Natok</li>
+		<li>Creating something new, by using the damaged things.</li>
+	</ul>
+</div>
+<div class="cv_clear"></div>
+</section>
+
+<section class="cv_foot" style="background: #004; margin: 0; padding: 0;">
+	<p style="text-align: center;color: #fff; line-height: 30px; font-family: sans-serif; font-size: 22px; font-weight: bolder;">&copy;Md Ashik Ali</p>
+</section>
+<div style="min-height: 90px; width: 100%; background-color: #f00;">
+	<p style=" text-align: center; color:#fff">	<a href="#about" title="Go to top"> 	<svg xmlns="http://www.w3.org/2000/svg"  style=" height:20px; width:20px; text-align: center; color:#fff; padding: 10px; cursor: pointer;" viewBox="0 0 320 512"><path d="M177 255.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 351.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 425.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1zm-34-192L7 199.7c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l96.4-96.4 96.4 96.4c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9l-136-136c-9.2-9.4-24.4-9.4-33.8 0z"/></svg>
+	</a></p>
+	<p style=" text-align: center; color:#fff; font-weight: bolder; padding: 7px;">&copy;Md Ashik Ali</p>
+
+</div>
+</div>
+
+
+<div id="logBtns">
+
+	<a href="#loginDiv">
+<button id="loginBtn" class="button" onClick="Login()">Log In </button></a>
+<a href="#signupDiv">
+<button id="signupBtn" class="button" onClick="Signup()">Sign Up</button></a>
+
+<a href="#logoutDiv">
+ <button id="logoutBtn" class="button" onClick="Logout()">Log Out</button>
+ </a>
+<div class="clear"></div>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="footer">
+<section id="date">
+
+<span id="day"> </span> /
+<span id="mounth"> </span> /
+<span id="year"> </span>
+<div class="clear"></div>
+</section>
+
+<section id="name">
+<span id="nameYY"> </span>
+<span id="copyNmae"> &copy;MD Ashik Ali</span>
+<div class="clear"></div>
+</section>
+
+</div>
+
+
+
+
+</div>
+
+<script>
+
+	function watncomment(){
+	document.querySelector("#commentAlert").style.display= "block";
+	}
+
+
+	function result(){
+
+	document.querySelector("#commentAlert").style.display= "none";
+	var getrool = document.querySelector("#rollResult").value;
+
+
+		var timeout;
+	if((getrool > 191500) && (getrool <191551)){
+	timeout = setTimeout("watncomment()", 3000);
+	}
+
+
+
+		function Student(name, roll, reg, gpa, city, gender, age, reli, mari){
+
+			this.name = name;
+			this.roll = roll;
+			this.reg = reg;
+			this.gpa = gpa;
+			this.city = city;
+			this.gender = gender;
+			this.age = age;
+			this.reli = reli;
+			this.mari = mari;
+
+		this.display = function(){
+
+			document.querySelector("#resultName").innerHTML = this.name;
+			document.querySelector("#resultRoll").innerHTML = this.roll;
+			document.querySelector("#resultReg").innerHTML = this.reg;
+			document.querySelector("#resultGpa").innerHTML = this.gpa;
+			document.querySelector("#resultCity").innerHTML = this.city;
+			document.querySelector("#resultGender").innerHTML = this.gender;
+			document.querySelector("#resultAge").innerHTML = this.age;
+			document.querySelector("#resultReli").innerHTML = this.reli;
+			document.querySelector("#resultMari").innerHTML = this.mari;
+
+			};
+		};
+
+
+
+		var rakib = new Student ("Abdur Rakib", 191501, 1155152, "3.12", "Rajshahi", "Male", 20, "Islam", "Single");
+		var basher = new Student ("Bashar Ahmmed", 191502, 1155153, "3.50", "Jamalpur", "Male", 21, "Islam", "Single");
+		var adnan = new Student ("Adnan Asif", 191503, 1155154, "3.39", "Meherpur", "Male", 21, "Islam", "In a Relationship");
+		var maruf = new Student ("Maruf Hassan", 191504, 1155155, "3.42", "Bogura", "Male", 21, "Islam", "Single");
+		var ali = new Student ("Ahmmed Ali", 191505, 1155156, "3.06", "Pabna", "Male", 20, "Islam", "Single");
+		var kiron = new Student ("Md Kiron Hossain", 191506, 1155157, "2.78", "Rajshahi", "Male", 21, "Islam", "Single");
+		var omar = new Student ("Omar Faruk", 191507, 1155158, "3.16", "Tangail", "Male", 21, "Islam", "Single");
+		var suma = new Student ("Suma Akther", 191508, 1155159, "3.13", "Thagorgoan", "Female", 20, "Islam", "Single");
+		var azmir = new Student ("Azmir Hossain", 191509, 1155160, "3.11", "Sirajgong", "Male", 20, "Islam", "Single");
+		var akash = new Student ("Akash Debnat", 191510, 1155161, "3.03", "Naogaon", "Male", 21, "Hindu", "Single");
+		var asa = new Student ("Ayesha Khatun Asa", 191512, 1155163, "3.53", "Rajshahi", "Female", 21, "Islam", "Single");
+		var tania = new Student ("Tania Sultana Rikta", 191514, 1155165, "3.14", "Jhenaidah", "Female", 21, "Islam", "Married");
+		var tasmoon = new Student ("Tasmoon Tithi", 191516, 1155167, "3.31", "Jhenaidah", "Female", 21, "Islam", "Single");
+		var istiyak = new Student ("Istiyak Ahmed", 191517, 1155168, "2.89", "Netrokona", "Male", 21, "Islam", "Single");
+		var prima = new Student ("Prima Kundu", 191518, 1155169, "3.23", "Pabna", "Female", 20, "Hindu", "Single");
+		var ashik = new Student ("Md Ashik Ali", 191519, 1155170, "Error", "Natore", "Male", 20, "Islam", "Single");
+		var tisha = new Student ("Tisha Hassan", 191520, 1155171, "3.30", "Pabna", "Female", 21, "Islam", "Unmarried");
+		var munmun = new Student ("Munmun Nahar", 191521, 1155172, "3.52", "Chapainawabganj", "Female", 21, "Islam", "Unmarried");
+		var amit = new Student ("Amit Hridoy", 191522, 1155173, "2.72", "Rajshahi", "Male", 20, "Hindu", "Single");
+		var taniza = new Student ("Taniza Jafor Tithy", 191523, 1155174, "3.44", "Kushtia", "Female", 20, "Islam", "In a Relationship");
+		var khusi = new Student ("Khusiara Khusi", 191524, 1155175, "3.36", "Pabna", "Female", 20, "Islam", "Unmarried");
+		var jakia = new Student ("Jakia Sultana", 191525, 1155176, "3.20", "Kushtia", "Female", 21, "Islam", "Single");
+		var tushar = new Student ("Moshiur Khan Tushar", 191526, 1155177, "2.88", "Rangpur", "Male", 21, "Islam", "Unmarried");
+		var atik = new Student ("Md Atiquar Rahman", 191527, 1155178, "2.91", "Rangpur", "Male", 21, "Islam", "In a Relationship");
+		var nazmul = new Student ("Nazmil Hossain", 191528, 1155179, "2.53", "Dinajpur", "Male", 21, "Islam", "Single");
+		var faisul = new Student ("Faisul Alam", 191529, 1155180, "3.06", "Bogura", "Male", 21, "Islam", "Single");
+		var jony = new Student ("Jony Sarkar", 191530, 1155181, "2.86", "Naogaon", "Male", 21, "Hindu", "Single");
+		var anwar = new Student ("Anwar Hossain", 191531, 1155182, "3.16", "Rajshahi", "Male", 21, "Islam", "Unmarried");
+		var sadia = new Student ("Sadia Sharmin", 191532, 1155183, "3.52", "Naogaon", "Female", 21, "Islam", "Married");
+		var jarin = new Student ("Jarin Nudar", 191533, 1155184, "3.00", "Rajshahi", "Female", 21, "Islam", "Unmarried");
+		var shahin = new Student ("Shahin Khan", 191535, 1155186, "3.41", "Rangpur", "Male", 21, "Islam", "Single");
+		var khadija = new Student ("Khadija Begum", 191536, 1155187, "3.33", "Panchagarh", "Female", 21, "Islam", "Unmarried");
+		var ruhani = new Student ("Jannatul Ruhani Jerin", 191537, 1155188, "3.36", "Kushtia", "Female", 20, "Islam", "Unmarried");
+		var puspho = new Student ("Humaira Habib Pushpho", 191538, 1155189, "3.31", "Meherpur", "Female", 21, "Islam", "Married");
+		var shamim = new Student ("Shamim Raza", 191539, 1155190, "3.36", "Rajshahi", "Male", 21, "Islam", "Unmarried");
+		var nova = new Student ("Nova Akter", 191540, 1155191, "3.17", "Pabna", "Female", 21, "Islam", "Married");
+		var moon = new Student ("Subrina Jannat Moon", 191541, 1155192, "3.03", "Dinajpur", "Female", 21, "Islam", "Unmarried");
+		var ajoy = new Student ("Ajoy Saha", 191542, 1155193, "3.19", "Rajshahi", "Male", 21, "Hindu", "Single");
+		var firoz = new Student ("Firoz Hossain Sourov", 191543, 1155194, "3.03", "Joypurhat", "Male", 21, "Islam", "Unmarried");
+		var ayesha = new Student ("Ayesha Siddika", 191544, 1155195, "3.02", "Pabna", "Female", 21, "Islam", "Unknown");
+		var monir = new Student ("Monir Mirdha", 191545, 1155196, "3.39", "Rajbari", "Male", 21, "Islam", "In aRelationship");
+		var simanto = new Student ("Abul Bashar Simanto", 191546, 1155197, "3.03", "Pabna", "Male", 21, "Islam", "Single");
+		var jim = new Student ("Azzizul Hakim Jim", 191547, 1155198, "3.00", "Dhaka", "Male", 20, "Islam", "Single");
+		var gando = new Student ("Arifuzzaman Santo", 191548, 1155199, "3.03", "Khulna", "Male", 21, "Islam", "In a relationship");
+		var setu = new Student ("Kazi Soumik Setu", 191549, 1155200, "2.81", "Natore", "Male", 21, "Islam", "Married");
+		var mohammod = new Student ("Mohammod Ali", 191550, 1155201, "3.03", "Chuadanga", "Male", 20, "Islam", "Single");
+
+
+
+
+		if (getrool == "" ){
+		alert("Please Enter your Roll no...!!");
+		document.querySelector("#outputResult").style.display = "none";
+		}
+		else if ((getrool <191501) && (getrool > 0)){
+
+			alert("Wrong Roll No !!");
+			document.querySelector("#outputResult").style.display = "none";
+			}
+			else if (getrool >191550){
+
+			alert("Wrong Roll No !!");
+			document.querySelector("#outputResult").style.display = "none";
+			}
+
+
+			var len = document.search_form.semester.length;
+			for(i=0; i<len; i++){
+			var chvalue = document.search_form.semester[i].checked;
+			if(chvalue){
+			var semester = document.search_form.semester.value;
+
+			}
+			}
+
+			var leng = document.search_form.year.length;
+			var year= "";
+			for(i=0; i<leng; i++){
+			var chevalue = document.search_form.year[i].checked;
+			if(chevalue){
+			year += document.search_form.year[i].value;
+
+			}
+			}
+
+		var yearSemester = semester && year;
+
+		if( (semester == "1st") && (year == "1st")){
+		if((getrool == "191519")){
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		document.querySelector("#resultGpa").style.color = "red";
+		document.querySelector("#resultGpa").style.fontWeight = "bold";
+		document.querySelector("#resultGpa").style.fontFamily = "'roboto',sans-serif";
+		ashik.display();
+
+		} else if((getrool =="191501")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		rakib.display();
+
+		} else if((getrool =="191502")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		basher.display();
+
+		} else if((getrool =="191503")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		adnan.display();
+
+		} else if((getrool =="191504")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		maruf.display();
+
+		} else if((getrool =="191505")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		ali.display();
+
+		} else if((getrool =="191506")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		kiron.display();
+
+		} else if((getrool =="191507")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		omar.display();
+
+		} else if((getrool =="191508")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		suma.display();
+
+		} else if((getrool =="191509")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		azmir.display();
+
+		} else if((getrool =="191510")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		akash.display();
+
+		} else if((getrool =="191512")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		asa.display();
+
+		} else if((getrool =="191514")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		tania.display();
+
+		} else if((getrool =="191516")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		tasmoon.display();
+
+		} else if((getrool =="191517")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		istiyak.display();
+
+		} else if((getrool =="191518")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		prima.display();
+
+		} else if((getrool =="191520")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		tisha.display();
+
+		} else if((getrool =="191521")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		munmun.display();
+
+		} else if((getrool =="191522")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		amit.display();
+
+		} else if((getrool =="191523")){
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		taniza.display();
+
+		} else if((getrool =="191524")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		khusi.display();
+
+		} else if((getrool =="191525")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		jakia.display();
+
+		} else if((getrool =="191526")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		tushar.display();
+
+		} else if((getrool =="191527")){
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		atik.display();
+
+		} else if((getrool =="191528")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		nazmul.display();
+
+		} else if((getrool =="191529")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		faisul.display();
+
+		} else if((getrool =="191530")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		jony.display();
+
+		} else if((getrool =="191531")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		anwar.display();
+
+		} else if((getrool =="191532")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		sadia.display();
+
+		} else if((getrool =="191533")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		jarin.display();
+
+		} else if((getrool =="191535")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		shahin.display();
+
+		} else if((getrool =="191536")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		khadija.display();
+
+		} else if((getrool =="191537")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		ruhani.display();
+
+		} else if((getrool =="191538")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		puspho.display();
+
+		} else if((getrool =="191539")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		shamim.display();
+
+		} else if((getrool =="191540")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		nova.display();
+
+		} else if((getrool =="191541")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		moon.display();
+
+		} else if((getrool =="191542")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		ajoy.display();
+
+		} else if((getrool =="191543")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		firoz.display();
+
+		} else if((getrool =="191544")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		ayesha.display();
+
+		} else if((getrool =="191545")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		monir.display();
+
+		} else if((getrool =="191546")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		simanto.display();
+
+		} else if((getrool =="191547")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		jim.display();
+
+		} else if((getrool =="191548")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		gando.display();
+
+		} else if((getrool =="191549")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		setu.display();
+
+		} else if((getrool =="191550")){
+
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#outputGetRoll").innerHTML = getrool;
+		mohammod.display();
+
+		}
+
+		} else if(yearSemester != "1st"){
+		alert ( "Check your Semester or Year!!!");
+
+		} else if (yearSemester = ""){
+		alert( "Please Set your year and Semester!!!");
+		}else {
+		alert ( "Check your Semester or Year!!!");
+		}
+
+
+
+
+//end result function
+}
+
+
+
+
+
+
+	function hide(){
+		document.querySelector("#hearder").style.display = "block";
+		document.querySelector("#windoeLoader").style.display = "none";
+		document.querySelector("#logoutBtn").style.display = "block";
+		document.querySelector("#main_page").style.display = "block";
+		document.querySelector("#loginSMS").style.display = "block";
+		document.querySelector(".navBar").style.display = "block";
+		document.querySelector("#footer").style.display = "block"; 
+	}
+
+	function loaderH(){
+		document.querySelector("#loginSMS").style.display = "none";
+	}
+	function getLogIN(){
+
+		var logRoll = document.querySelector("#logRoll").value;
+
+		var logname = document.querySelector("#fullname").value;
+		var logmobail = document.querySelector("#mobail").value;
+		var Lname = logname.length;
+		var Lmobail = logmobail.length;
+
+		 if (Lname == ""){
+		alert("Your Name field may empty !!! Please enter your name.!");
+		}else
+		if (Lname<3){
+		alert("You name is too short. It`s may not a valied name! Please enter your correct name...");
+		}
+
+
+		if(((Lmobail <11)&&(Lmobail !=""))|| (Lmobail>14)){
+		alert("Your mobail number is not valied! Please enter your valied mobail number...");
+		} else if (Lmobail== ""){
+				alert("Please enter your mobail number...!");
+		}
+
+		if (logRoll == ""){
+		alert("Please enter your PUST roll no...!");
+		} else if ((logRoll <191501)&&(logRoll >191550)){
+		alert("Your roll no is not match. Please enter your PUST valied roll no...!");
+		}
+
+		if ((Lname >2)&&((Lmobail>10) && (Lmobail<15))){
+		if((logRoll == "191519") || (logRoll == "191501") || (logRoll == "191502") || (logRoll == "191503") || (logRoll == "191505")
+			 || (logRoll == "191535") || (logRoll == "191534") || (logRoll == "191521") || (logRoll == "191520") || (logRoll == "191506")
+			 || (logRoll == "191536") || (logRoll == "191533") || (logRoll == "191522") || (logRoll == "191518") || (logRoll == "191507")
+			 || (logRoll == "191537") || (logRoll == "191532") || (logRoll == "191523") || (logRoll == "191517") || (logRoll == "191508")
+			 || (logRoll == "191538") || (logRoll == "191531") || (logRoll == "191524") || (logRoll == "191516") || (logRoll == "191509")
+			 || (logRoll == "191539") || (logRoll == "191530") || (logRoll == "191525") || (logRoll == "191515") || (logRoll == "191510")
+			 || (logRoll == "191540") || (logRoll == "191529") || (logRoll == "191526") || (logRoll == "191514") || (logRoll == "191511")
+			 || (logRoll == "191541") || (logRoll == "191528") || (logRoll == "191527") || (logRoll == "191513") || (logRoll == "191512")
+			 || (logRoll == "191542") || (logRoll == "191544") || (logRoll == "191546") || (logRoll == "191547") || (logRoll == "191548")
+			 || (logRoll == "191543") || (logRoll == "191545") || (logRoll == "191549") || (logRoll == "191550")){
+
+				document.querySelector("#footer").style.display = "none"; 
+				document.querySelector("#hearder").style.display = "none"; 
+				document.querySelector("#windoeLoader").style.display = "block";
+				document.querySelector("#windoeLoader").style.height = "100%";
+				document.querySelector("#windoeLoader").style.width = "100%";
+				document.querySelector("#loginBtn").style.display = "none";
+				document.querySelector("#signupBtn").style.display = "none";
+				document.querySelector("#loginDiv").style.display = "none";
+				document.querySelector("#homePage").style.display = "none";
+				document.querySelector("#loginSMS").innerHTML = "You have logged in !";
+		var timeout;
+		timeout = setTimeout("hide()", 7000);
+		var loaderhide;
+		loaderhide = setTimeout("loaderH()", 14000);
+
+		}
+		}
+
+	}
+
+		function hidee(){
+			document.querySelector("#footer").style.display = "block"; 
+				document.querySelector("#hearder").style.display = "block"; 
+			document.querySelector("#loginSMS").style.display = "block";
+			document.querySelector("#windoeLoader").style.display = "none";
+			document.querySelector("#logoutBtn").style.display = "block";
+			document.querySelector("#main_page").style.display = "block";
+			document.querySelector(".navBar").style.display = "block";
+		}
+
+		function noneloader(){
+			document.querySelector("#loginSMS").style.display = "none";
+		}
+	function getSignUp(){
+	
+
+
+
+		var FN = document.register_form.Firstname.value;
+		var LN = document.register_form.Lastname.value;
+		var ML = document.register_form.Mobail.value;
+		var full = FN.length;
+		var last = LN.length;
+		var mob = ML.length;
+
+		var inputLen = full || last;
+
+		var em = FN && LN && ML;
+
+		var signRoll = document.register_form.signRoll.value;
+
+
+		var index = document.register_form.departLog.selectedIndex;
+		var dep = document.register_form.departLog.options[index].value;
+		var de= "Social Work";
+
+			var len = document.register_form.sex.length;
+		for(i=0; i<len; i++){
+			var cvalue = document.register_form.sex[i].checked;
+		if(cvalue){
+			var g = document.register_form.sex.value;
+			}
+			var m = "Male";
+			var f = "Female";
+		}
+
+
+
+		if(((signRoll == "191519") && ( dep == de) && (g == m ) && ( em != "") && (inputLen >= 3)&& (mob >10)) || ((signRoll == "191501") && ( dep == de) && (g == m ) && ( em != ""))
+			 || ((signRoll == "191502") && ( dep == de) && (g == m ) && ( em != "")) || ((signRoll == "191503") && ( dep == de) && (g == m ) && ( em != ""))
+			 || ((signRoll == "191505") && ( dep == de) && (g == m ) && ( em != "")) || ((signRoll == "191535") && ( dep == de) && (g == m ) && ( em != ""))
+			 || ((signRoll == "191534") && ( dep == de) && (g == f ) && ( em != "")) || ((signRoll == "191521") && ( dep == de) && (g == f ) && ( em != ""))
+			 || ((signRoll == "191520") && ( dep == de) && (g == f ) && ( em != "")) || ((signRoll == "191506") && ( dep == de) && (g == m ) && ( em != ""))
+			 || ((signRoll == "191536") && ( dep == de) && (g == f ) && ( em != "")) || ((signRoll == "191533") && ( dep == de) && (g == f ) && ( em != ""))
+			 || ((signRoll == "191522") && ( dep == de) && (g == m ) && ( em != "")) || ((signRoll == "191518") && ( dep == de) && (g == f ) && ( em != ""))
+			 || ((signRoll == "191507") && ( dep == de) && (g == m ) && ( em != "")) || ((signRoll == "191537") && ( dep == de) && (g == f ) && ( em != ""))
+			 || ((signRoll == "191532") && ( dep == de) && (g == f ) && ( em != "")) || ((signRoll == "191523") && ( dep == de) && (g == f ) && ( em != ""))
+			 || ((signRoll == "191517") && ( dep == de) && (g == m ) && ( em != "")) || ((signRoll == "191508") && ( dep == de) && (g == f ) && ( em != ""))
+			 || ((signRoll == "191538") && ( dep == de) && (g == f ) && ( em != "")) || ((signRoll == "191531") && ( dep == de) && (g == m ) && ( em != ""))
+			 || ((signRoll == "191524") && ( dep == de) && (g == f ) && ( em != "")) || ((signRoll == "191516") && ( dep == de) && (g == f ) && ( em != ""))
+			 || ((signRoll == "191509") && ( dep == de) && (g == m ) && ( em != "")) || ((signRoll == "191539") && ( dep == de) && (g == m ) && ( em != ""))
+			 || ((signRoll == "191530") && ( dep == de) && (g == m ) && ( em != "")) || ((signRoll == "191525") && ( dep == de) && (g == f ) && ( em != ""))
+			 || ((signRoll == "191515") && ( dep == de) && (g == f ) && ( em != "")) || ((signRoll == "191510") && ( dep == de) && (g == m ) && ( em != ""))
+			 || ((signRoll == "191540") && ( dep == de) && (g == f ) && ( em != "")) || ((signRoll == "191529") && ( dep == de) && (g == m ) && ( em != ""))
+			 || ((signRoll == "191526") && ( dep == de) && (g == m ) && ( em != "")) || ((signRoll == "191514") && ( dep == de) && (g == f ) && ( em != ""))
+			 || ((signRoll == "191511") && ( dep == de) && (g == m ) && ( em != "")) || ((signRoll == "191541") && ( dep == de) && (g == f ) && ( em != ""))
+			 || ((signRoll == "191528") && ( dep == de) && (g == m ) && ( em != "")) || ((signRoll == "191527") && ( dep == de) && (g == m ) && ( em != ""))
+			 || ((signRoll == "191513") && ( dep == de) && (g == m ) && ( em != "")) || ((signRoll == "191512") && ( dep == de) && (g == f ) && ( em != ""))
+			 || ((signRoll == "191542") && ( dep == de) && (g == m ) && ( em != "")) || ((signRoll == "191544") && ( dep == de) && (g == f ) && ( em != ""))
+			 || ((signRoll == "191546") && ( dep == de) && (g == m ) && ( em != "")) || ((signRoll == "191547") && ( dep == de) && (g == m ) && ( em != ""))
+			 || ((signRoll == "191548") && ( dep == de) && (g == m ) && ( em != "")) || ((signRoll == "191543") && ( dep == de) && (g == m ) && ( em != ""))
+			 || ((signRoll == "191545") && ( dep == de) && (g == m ) && ( em != "")) || ((signRoll == "191549") && ( dep == de) && (g == m ) && ( em != ""))
+			 || ((signRoll == "191550") && ( dep == de) && (g == m ) && ( em != ""))){
+
+
+		document.querySelector("#windoeLoader").style.display = "block";
+		document.querySelector("#homePage").style.display = "none";
+		document.querySelector("#footer").style.display = "none"; 
+				document.querySelector("#hearder").style.display = "none"; 
+		document.querySelector("#loginSMS").innerHTML = "You have signed up Successfully !";
+		document.querySelector("#signupDiv").style.display = "none";
+		
+		document.querySelector("#loginBtn").style.display = "none";
+		document.querySelector("#signupBtn").style.display = "none";
+		
+
+				var timeout;
+		timeout = setTimeout("hidee()", 7000);
+		var loadernone;
+		loadernone = setTimeout("noneloader()", 14000)
+		}
+		if ((signRoll<191501)||(signRoll>191550)){
+
+		alert("Your roll does not match. Please, Enter correct roll");
+
+		}
+
+		if (inputLen <3){
+		alert ("Your name too short. Please give us your valied name.");
+		}
+
+		if (mob<11){
+		alert ("Your mobail number is incorrect. Please give us your valied mobail number.");
+		}
+
+	}
+
+	function getLogout(){
+		document.querySelector("#logoutBtn").style.display = "none";
+		document.querySelector("#homePage").style.display = "block";
+		document.querySelector("#loginSMS").innerHTML = "You have Logged out !";
+		document.querySelector("#logoutDiv").style.display = "none";
+		document.querySelector("#main_page").style.display = "none";
+		document.querySelector("#loginBtn").style.display = "block";
+		document.querySelector("#signupBtn").style.display = "block";
+		document.querySelector(".navBar").style.display = "none";
+		document.querySelector("#syllabus_page").style.display = "none";
+		document.querySelector("#contactMe").style.display = "none";
+		document.querySelector("#about").style.display ="none";
+
+		document.querySelector("#bsw1253").style.display = "none";
+		document.querySelector("#bsw1251").style.display = "none";
+		document.querySelector("#bsw1252").style.display = "none";
+		document.querySelector("#bsw1254").style.display = "none";
+		document.querySelector("#bsw1255").style.display = "none";
+
+
+	};
+
+	function backLogin(){
+	document.querySelector("#signupBtn").style.display = "block";
+	document.querySelector("#loginBtn").style.display = "block";
+		document.querySelector("#loginDiv").style.display = "none";
+		document.querySelector("#homePage").style.display = "block";
+	};
+
+	function backSignup(){
+			document.querySelector("#loginBtn").style.display = "block";
+		document.querySelector("#signupBtn").style.display = "block";
+		document.querySelector("#signupDiv").style.display = "none";
+		document.querySelector("#homePage").style.display = "block";
+	};
+
+	function backLogout(){
+
+		document.querySelector("#logoutDiv").style.display = "none";
+		document.querySelector("#main_page").style.display = "block";
+	};
+
+
+	function Login(){
+		document.querySelector("#signupBtn").style.display = "none";
+		document.querySelector("#homePage").style.display = "none";
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#signupDiv").style.display = "none";
+		document.querySelector("#logoutDiv").style.display = "none";
+		document.querySelector("#main_page").style.display = "none";
+		document.querySelector("#loginBtn").style.display = "none";
+		document.querySelector("#loginDiv").style.display = "block";
+	};
+
+
+	function Signup(){
+		document.querySelector("#signupBtn").style.display = "none";
+		document.querySelector("#loginBtn").style.display = "none";
+		document.querySelector("#homePage").style.display = "none";
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#main_page").style.display = "none";
+		document.querySelector("#loginDiv").style.display = "none";
+		document.querySelector("#logoutDiv").style.display = "none";
+		document.querySelector("#signupDiv").style.display = "block";
+	};
+
+	function Logout(){
+		document.querySelector("#loginSMS").style.display = "none";
+		document.querySelector("#main_page").style.display = "none";
+		document.querySelector("#logoutDiv").style.display = "block"
+		document.querySelector("#loginDiv").style.display = "none"
+		document.querySelector("#signupDiv").style.display = "none"
+	};
+
+
+	function wantComment(){
+		document.querySelector("#logoutBtn").style.display = "none";
+		document.querySelector("#commentAlert").style.display = "none";
+		document.querySelector("#writeComment").style.display = "block";
+		document.querySelector("#main_page").style.display = "none";
+		document.querySelector(".navBar").style.display = "none";
+	};
+
+	function backComment(){
+		document.querySelector("#main_page").style.display = "block";
+		document.querySelector("#outputResult").style.display = "block";
+		document.querySelector("#commentAlert").style.display = "none";
+	};
+
+	function takeComment(){
+		document.querySelector("#commentAlert").style.display = "none";
+		document.querySelector("#writeComment").style.display = "none";
+		document.querySelector("#thankComment").style.display = "block";
+	};
+
+	function thankComment(){
+		var getcom = document.querySelector("#takeComment").value;
+		if(getcom == ""){
+		document.getElementById("outComment").innerHTML = "But You have not written a line!!";
+		} else{ document.getElementById("outComment").innerHTML = getcom;
+		}
+		document.querySelector("#screenComment").style.display = "block";
+		document.querySelector("#commentAlert").style.display = "none";
+		document.querySelector("#writeComment").style.display = "none";
+		document.querySelector("#thankComment").style.display = "none";
+	};
+
+	function hid(){
+		document.querySelector("#logoutBtn").style.display = "block";
+		document.querySelector(".navBar").style.display = "block";
+		document.querySelector("#main_page").style.display = "block";
+		document.querySelector("#windoeLoader").style.display = "none";
+		document.querySelector("#loginSMS").style.display = "block";
+	}
+	function loadOut(){
+		document.querySelector("#loginSMS").style.display = "none";
+	}
+
+	function screenComment(){
+			var timegone;
+			timegone = setTimeout("hid()", 6000);
+
+			var lodout;
+			lodout = setTimeout("loadOut()",18000)
+
+		document.querySelector("#loginSMS").innerHTML = "Your comment have been sunmited successfully !! Thank you for your valuable comment!!.";
+		document.querySelector("#screenComment").style.display = "none";
+		document.getElementById("outComment").style.display = "none";
+		document.querySelector("#commentAlert").style.display = "none";
+		document.querySelector("#thankComment").style.display = "none";
+		document.querySelector("#writeComment").style.display = "none";
+		document.querySelector("#windoeLoader").style.display = "block";
+		
+		
+	};
+
+	function home(){
+		document.querySelector("#bsw1253").style.display = "none";
+		document.querySelector("#bsw1251").style.display = "none";
+		document.querySelector("#bsw1252").style.display = "none";
+		document.querySelector("#bsw1254").style.display = "none";
+		document.querySelector("#bsw1255").style.display = "none";
+		
+		document.querySelector("#main_page").style.display = "block";
+		document.querySelector("#syllabus_page").style.display = "none";
+		document.querySelector("#contactMe").style.display = "none";
+		document.querySelector("#logoutDiv").style.display = "none";
+		document.querySelector("#about").style.display ="none";
+	}
+	function academic(){
+		document.querySelector("#bsw1253").style.display = "none";
+		document.querySelector("#bsw1251").style.display = "none";
+		document.querySelector("#bsw1252").style.display = "none";
+		document.querySelector("#bsw1254").style.display = "none";
+		document.querySelector("#bsw1255").style.display = "none";
+
+	document.querySelector("#syllabus_page").style.display = "block";
+		document.querySelector("#main_page").style.display = "none";
+		document.querySelector("#contactMe").style.display = "none";
+		document.querySelector("#logoutDiv").style.display = "none";
+		document.querySelector("#about").style.display ="none";
+	}
+
+	function contact(){
+		document.querySelector("#bsw1253").style.display = "none";
+		document.querySelector("#bsw1251").style.display = "none";
+		document.querySelector("#bsw1252").style.display = "none";
+		document.querySelector("#bsw1254").style.display = "none";
+		document.querySelector("#bsw1255").style.display = "none";
+
+		document.querySelector("#contactMe").style.display = "block";
+		document.querySelector("#main_page").style.display = "none";
+		document.querySelector("#syllabus_page").style.display = "none";
+		document.querySelector("#logoutDiv").style.display = "none";
+		document.querySelector("#about").style.display ="none";
+
+	}
+
+	function bsw1253(){
+		document.querySelector("#bsw1253").style.display = "block";
+		document.querySelector("#bsw1251").style.display = "none";
+		document.querySelector("#bsw1252").style.display = "none";
+		document.querySelector("#bsw1254").style.display = "none";
+		document.querySelector("#bsw1255").style.display = "none";
+		document.querySelector("#about").style.display ="none";
+		document.querySelector("#contactMe").style.display = "none";
+		document.querySelector("#main_page").style.display = "none";
+		document.querySelector("#syllabus_page").style.display = "none";
+		document.querySelector("#logoutDiv").style.display = "none";
+	}
+
+	function bsw1251(){
+		document.querySelector("#bsw1253").style.display = "none";
+		document.querySelector("#bsw1251").style.display = "block";
+		document.querySelector("#bsw1252").style.display = "none";
+		document.querySelector("#bsw1254").style.display = "none";
+		document.querySelector("#bsw1255").style.display = "none";
+		
+		document.querySelector("#about").style.display ="none";
+		document.querySelector("#contactMe").style.display = "none";
+		document.querySelector("#main_page").style.display = "none";
+		document.querySelector("#syllabus_page").style.display = "none";
+		document.querySelector("#logoutDiv").style.display = "none";
+	}
+
+	function bsw1252(){
+		document.querySelector("#bsw1253").style.display = "none";
+		document.querySelector("#bsw1251").style.display = "none";
+		document.querySelector("#bsw1252").style.display = "block";
+		document.querySelector("#bsw1254").style.display = "none";
+		document.querySelector("#bsw1255").style.display = "none";
+	
+		document.querySelector("#about").style.display ="none";
+		document.querySelector("#contactMe").style.display = "none";
+		document.querySelector("#main_page").style.display = "none";
+		document.querySelector("#syllabus_page").style.display = "none";
+		document.querySelector("#logoutDiv").style.display = "none";
+	}
+
+	function bsw1254(){
+		document.querySelector("#bsw1253").style.display = "none";
+		document.querySelector("#bsw1251").style.display = "none";
+		document.querySelector("#bsw1252").style.display = "none";
+		document.querySelector("#bsw1254").style.display = "block";
+		document.querySelector("#bsw1255").style.display = "none";
+		
+		document.querySelector("#about").style.display ="none";
+		document.querySelector("#contactMe").style.display = "none";
+		document.querySelector("#main_page").style.display = "none";
+		document.querySelector("#syllabus_page").style.display = "none";
+		document.querySelector("#logoutDiv").style.display = "none";
+	}
+
+	function bsw1255(){
+		document.querySelector("#bsw1253").style.display = "none";
+		document.querySelector("#bsw1251").style.display = "none";
+		document.querySelector("#bsw1252").style.display = "none";
+		document.querySelector("#bsw1254").style.display = "none";
+		document.querySelector("#bsw1255").style.display = "block";
+		
+		document.querySelector("#about").style.display ="none";
+		document.querySelector("#contactMe").style.display = "none";
+		document.querySelector("#main_page").style.display = "none";
+		document.querySelector("#syllabus_page").style.display = "none";
+		document.querySelector("#logoutDiv").style.display = "none";
+	}
+
+
+
+	function about(){
+		document.querySelector("#about").style.display ="block";
+		document.querySelector("#bsw1255").style.display = "none";
+		document.querySelector("#bsw1251").style.display = "none";
+		document.querySelector("#bsw1252").style.display = "none";
+		document.querySelector("#bsw1253").style.display = "none";
+		document.querySelector("#bsw1254").style.display = "none";
+		
+		document.querySelector("#contactMe").style.display = "none";
+		document.querySelector("#main_page").style.display = "none";
+		document.querySelector("#syllabus_page").style.display = "none";
+		document.querySelector("#logoutDiv").style.display = "none";
+	}
+
+
+function clock(){
+	var times = new Date();
+
+	/*date zone start from here*/
+
+	var year = times.getFullYear();
+	var mon = times.getMonth();
+			var month = mon + 1;
+	var day = times.getDate();
+
+	document.getElementById("nameYY").innerHTML = year;
+	document.querySelector("#year").innerHTML = year;
+
+	if(day <10){
+	document.querySelector("#mounth").innerHTML = "0" + month;
+	} else{document.querySelector("#mounth").innerHTML = month;}
+
+	if(day <10){
+	document.querySelector("#day").innerHTML = "0" + day;
+	} else{document.querySelector("#day").innerHTML = day;}
+
+	//date zone end here
+
+	//time zoone start here
+
+	var hour = times.getHours();
+	var minute = times.getMinutes();
+	var second = times.getSeconds();
+
+	if(hour <=9){
+		document.querySelector("#hour").innerHTML = "0" + hour;
+	} else if( hour >= 10 && hour <=12){
+		document.querySelector("#hour").innerHTML = hour;
+	} else if(hour > 12){
+		var pm = hour - 12;
+		if( pm <=9){
+			document.querySelector("#hour").innerHTML = "0" + pm;
+		} else{document.querySelector("#hour").innerHTML = pm}
+	}if (hour == "0"){
+	document.querySelector("#hour").innerHTML = "12"
+	}
+
+	if (minute <=9){
+		document.querySelector("#minute").innerHTML = "0" + minute;
+	} else{document.querySelector("#minute").innerHTML = minute;}
+
+	if (second <=9){
+		document.querySelector("#second").innerHTML = "0" + second;
+	} else{document.querySelector("#second").innerHTML = second;}
+
+
+}
+setInterval(clock, 1000);
+
+
+
+</script>
+
+</body>
+</html>
